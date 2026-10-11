@@ -1,0 +1,8 @@
+{
+  "description": "Liste des elements spécifiques saisis par l'utilisateur à anonymiser",
+  "entities": [
+    "mon_api",
+    "test",
+    "un_test"
+  ]
+}

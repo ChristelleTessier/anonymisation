@@ -1,32 +1,10 @@
-.page_layout {
-  min-height: 100vh;
+.folder_section {
   width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #f8fafc;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  box-sizing: border-box;
-}
-
-.content_box {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100%;
-  max-width: 760px;
-  padding: 20px;
 }
 
-.main_title {
-  font-size: 2rem;
-  font-weight: 700;
-  color: #0f172a;
-  margin-bottom: 28px;
-  text-align: center;
-}
-
-/* Grand rectangle horizontal */
 .drop_box {
   width: 100%;
   box-sizing: border-box;

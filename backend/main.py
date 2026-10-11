@@ -1,0 +1,21 @@
+from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
+from api.scan_settings import router as scan_settings_router
+from api.custom_entities import router as custom_entities_router
+from api.export_configs import router as export_configs_router
+
+app = FastAPI(title="Anonymisation API")
+
+# Configuration CORS pour React
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://localhost:5173"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+# Enregistrement des routes
+app.include_router(scan_settings_router)
+app.include_router(custom_entities_router)
+app.include_router(export_configs_router)

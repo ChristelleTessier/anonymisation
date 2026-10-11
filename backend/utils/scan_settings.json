@@ -1,0 +1,43 @@
+{
+  "target_extensions": [
+    ".txt",
+    ".csv",
+    ".json",
+    ".xml",
+    ".log",
+    ".md",
+    ".docx",
+    ".pdf"
+  ],
+  "ignored_extensions": [
+    ".dll",
+    ".bin",
+    ".pyc",
+    ".zip",
+    ".tar",
+    ".gz",
+    ".png",
+    ".jpg",
+    ".jpeg",
+    ".svg",
+    ".mp4"
+  ],
+  "ignored_directories": [
+    ".git",
+    "node_modules",
+    "pycache",
+    ".vscode",
+    ".idea",
+    "dist",
+    "build",
+    ".env",
+    ".venv"
+  ],
+  "target_categories": [
+    "identifiants",
+    "coordonnees",
+    "adresses",
+    "dates",
+    "montants"
+  ]
+}
