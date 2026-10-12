@@ -9,6 +9,7 @@ Install with npm and start now ? Yes
 # Lancement
 cd backend
 uvicorn main:app --reload
+(.\.venv\Scripts\python.exe -m uvicorn main:app --reload)
 
 
 cd frontend

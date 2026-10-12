@@ -1,9 +1,12 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from api.scan_patterns import router as scan_patterns_router
 from api.scan_settings import router as scan_settings_router
-from api.custom_entities import router as custom_entities_router
+from api.scan_custom_entities import router as scan_custom_entities_router
+
 from api.export_configs import router as export_configs_router
 from api.config_specs import router as config_specs_router
+
 
 app = FastAPI(title="Anonymisation API")
 
@@ -18,6 +21,8 @@ app.add_middleware(
 
 # Enregistrement des routes
 app.include_router(scan_settings_router)
-app.include_router(custom_entities_router)
+app.include_router(scan_custom_entities_router)
+app.include_router(scan_patterns_router)
+
 app.include_router(export_configs_router)
 app.include_router(config_specs_router)

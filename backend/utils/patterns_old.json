@@ -1,0 +1,51 @@
+{
+    "SECRET": {
+      "_description": "Détection des secrets (Clés API, JWT, Clés Privées). Action: SUPPRESSION de la ligne.",
+      "patterns": [
+        "(?i)(api_key|client_secret|auth_token|password|passwd|access_token|secret)\\s*[:=]\\s*[\"'][^\"']+[\"']",
+        "-----BEGIN [A-Z ]+ PRIVATE KEY-----",
+        "(?:eyJ|eyJ).{50,}\\.eyJ|eyJ"
+      ],
+      "action": "REMPLACER"
+    },
+    "PII_DATA": {
+      "_description": "Données personnelles (Email, Tel, Dates). Action: REMPLACEMENT",
+      "patterns": [
+        "\\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Z|a-z]{2,}\\b",
+        "\\b(?:\\+?\\d{1,3}[-.\\s]?)?\\(?\\d{3}\\)?[-.\\s]?\\d{3}[-.\\s]?\\d{4}\\b",
+        "\\d{2}/\\d{2}/\\d{4}|\\d{4}-\\d{2}-\\d{2}"
+      ],
+      "action": "REMPLACER"
+    },
+    "DB_CONNECTION": {
+      "_description": "Information connexion BDD (chemin de connection et variables de configuration. Action: SUPPRESSION de la ligne.",
+      "patterns": [
+        "jdbc:[a-z]+://[^\\s\"']+",
+        "(?i)(db_user|db_password|database_url)\\s*[:=]\\s*[\"'][^\"']+[\"']"
+      ],
+      "action": "REMPLACER"
+    },
+    "INFRA_NETWORK": {
+      "_description": "Information sur la structure du reseau. Action: SUPPRESSION de la ligne.",
+      "patterns": [
+        "\\b(?:\\d{1,3}\\.){3}\\d{1,3}\\b",
+        "[a-zA-Z0-9.-]+\\.(?:internal|local|lan|corp|priv)",
+        "[a-z0-9.-]+\\.s3\\.amazonaws\\.com"
+      ],
+      "action": "REMPLACER"
+    },
+    "URL_API": {
+      "_description": "lien url de connection vers API. Action: SUPPRESSION de la ligne.",
+      "patterns": [
+        "https?://[a-zA-Z0-9.-]+(?:/[a-zA-Z0-9._\\-/]*)?"
+      ],
+      "action": "REMPLACER"
+    },
+    "METADATA_PATHS": {
+      "_description": "Chemin absolu des fichiers locaux. Action: SUPPRESSION de la ligne.",
+      "patterns": [
+        "(?:/home/|/Users/|C:\\\\Users\\\\)[a-zA-Z0-9._\\\\-\\\\ ]+"
+      ],
+      "action": "REMPLACER"
+    }
+  }

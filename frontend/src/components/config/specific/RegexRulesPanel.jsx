@@ -1,3 +1,6 @@
+
+
+
 function RegexRulesPanel() {
   return (
     <div className="config_card">

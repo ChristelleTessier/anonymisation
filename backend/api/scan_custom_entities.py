@@ -12,7 +12,7 @@ CONFIG_PATH = Path(__file__).resolve().parent.parent / "utils" / "custom_entitie
 class CustomEntitiesModel(BaseModel):
     entities: List[str]
 
-@router.get("/custom-entities")
+@router.get("/scan-custom-entities")
 def get_custom_entities():
     if not CONFIG_PATH.exists():
         raise HTTPException(
@@ -23,14 +23,14 @@ def get_custom_entities():
     try:
         with open(CONFIG_PATH, "r", encoding="utf-8") as f:
             data = json.load(f)
-        return data.get("entities", [])
+        return data #data.get("entities", [])
     except Exception as e:
         raise HTTPException(
             status_code=500,
             detail=f"Erreur de lecture du fichier : {str(e)}"
         )
 
-@router.post("/custom-entities")
+@router.post("/scan-custom-entities")
 def update_custom_entities(payload: CustomEntitiesModel):
     try:
         existing_data = {}

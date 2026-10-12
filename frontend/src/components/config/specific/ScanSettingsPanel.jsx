@@ -96,7 +96,7 @@ function ScanSettingsPanel() {
     })
 
     try {
-      // 3. Appel de l'API pour écrire dans scan_settings.json
+      // 3. Appel de l'API pour écrire dans 
       await save_scan_settings(payload_for_api)
 
       // 4. Mise à jour de l'état local une fois l'écriture réussie
@@ -125,7 +125,7 @@ function ScanSettingsPanel() {
         onClick={() => set_is_modal_open(true)}
       >
         <h3 className="card_title">Paramètres de scan</h3>
-        <p className="card_description">scan_settings.json</p>
+        <p className="card_description">setting.json</p>
 
         {is_loading && (
           <div className="card_content_placeholder">

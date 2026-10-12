@@ -6,8 +6,8 @@ from typing import List
 
 router = APIRouter(prefix="/api", tags=["settings"])
 
-# Chemin vers utils/scan_settings.json (remonte d'un cran vers backend puis utils)
-CONFIG_PATH = Path(__file__).resolve().parent.parent / "utils" / "scan_settings.json"
+# Chemin vers utils/settings.json (remonte d'un cran vers backend puis utils)
+CONFIG_PATH = Path(__file__).resolve().parent.parent / "utils" / "settings.json"
 
 class ScanSettingsModel(BaseModel):
     target_extensions: List[str]
@@ -26,6 +26,7 @@ def get_scan_settings():
         with open(CONFIG_PATH, "r", encoding="utf-8") as f:
             data = json.load(f)
         return data
+    
     except Exception as e:
         raise HTTPException(
             status_code=500,

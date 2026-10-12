@@ -13,6 +13,20 @@ export async function fetch_config_specs() {
 }
 
 /**
+ * Récupère les patterns de scan depuis le backend
+ */
+export async function fetch_scan_patterns() {
+  const response = await fetch(`${API_BASE_URL}/scan-patterns`)
+
+  if (!response.ok) {
+    throw new Error(`Erreur lors du chargement des paramètres (${response.status})`)
+  }
+
+  return await response.json()
+}
+
+
+/**
  * Récupère les paramètres de scan depuis le backend
  */
 export async function fetch_scan_settings() {
@@ -29,7 +43,7 @@ export async function fetch_scan_settings() {
  * Récupère les paramètres custom depuis le backend
  */
 export async function fetch_custom_entities() {
-  const response = await fetch(`${API_BASE_URL}/custom-entities`)
+  const response = await fetch(`${API_BASE_URL}/scan-custom-entities`)
 
   if (!response.ok) {
     throw new Error(`Erreur lors du chargement des paramètres (${response.status})`)
