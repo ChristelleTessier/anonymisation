@@ -6,7 +6,7 @@ import sys
 
 from pathlib import Path
 
-from travail_fichier import load_config_etude, save_json
+from scripts.travail_fichier import load_config_etude, save_json
 
 
 class AdvancedAnalyzer:
@@ -55,8 +55,6 @@ class AdvancedAnalyzer:
                 # 1. L'extension n'est-elle pas dans la liste des ignorées ?
                 if element.suffix not in self.ignored_extensions:
                     self._process_single_file(element)
-
-                
 
 
     # =========================================================================
@@ -117,14 +115,16 @@ class AdvancedAnalyzer:
             # 2. Lecture du contenu
             content = path_obj.read_text(encoding='utf-8')
 
-            for cat, config in self.regex_engines.items():
-                for pattern in config["patterns"]:
-                    for match in re.finditer(pattern, content):
-                        changes.append({ 
-                            "category": cat,
-                            "original": match.group(),
-                            "start": match.start(),
-                            "end": match.end()
+            for regles in self.regex_engines:
+                pattern = regles.get("pattern")
+                categorie = regles.get("categorie")
+
+                for match in re.finditer(pattern, content):
+                    changes.append({ 
+                        "category": categorie,
+                        "original": match.group(),
+                        "start": match.start(),
+                        "end": match.end()
                         })
 
             # TO DO
@@ -132,6 +132,7 @@ class AdvancedAnalyzer:
 
         except Exception as e:
             return [{"error": str(e), "file": str(file_path)}]
+
 
     # *******************
     # A re gerer 
@@ -206,25 +207,16 @@ class AdvancedAnalyzer:
     
         # 1. Gestion de la destination
         source_dir = Path(self.directory).absolute()
-        local_dir = Path.cwd()
+        # local_dir = Path.cwd()
     
-        target_dir = local_dir / f"{source_dir.name}_anonymized"
+        # target_dir = local_dir / f"{source_dir.name}_anonymized"
         
         # 3. Boucle d'analyse
-        print(f"\n🔍 Analyse en cours dans : {source_dir}")
         self._recursive_scan(source_dir)
         
                     
         # 4. Sauvegarde
-        final_json_path = save_json(self.changes, target_dir, "plan_anonymisation/changes_plan.json")
+        #final_json_path = 
+        save_json(self.changes, "", "proposition_changes_plan.json")
     
-        print("\n✅ Analyse terminée.")
-        print(f"📂 Dossier de sortie : {target_dir}")
-        print(f"📄 Plan généré : {final_json_path}")
     
-
-if __name__ == "__main__":
-    # Dans .bat -> python scripts\analyzer.py" "%TARGET_DIR%"
-    # sys.argv[1] = contenu de TARGET_DIR
-    # Lancement de la méthode run pour l'objet
-    AdvancedAnalyzer(sys.argv[1]).run()

@@ -111,7 +111,3 @@ export async function download_config_archive() {
   window.URL.revokeObjectURL(download_url)
 }
 
-// Plus tard, vous ajouterez ici vos autres fonctions :
-// export async function fetch_regex_rules() { ... }
-// export async function save_custom_entities(entities) { ... }
-// export async function start_anonymization(folder_path) { ... }

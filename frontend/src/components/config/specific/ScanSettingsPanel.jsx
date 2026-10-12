@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { fetch_scan_settings, save_scan_settings} from '../../../services/api_services'
+import { fetch_scan_settings, save_scan_settings} from '../../../services/api_settings_services'
 import ConfigModal from '../generic/ConfigModal'
 import EditableTagList from '../generic/EditableTagList'
 import ListActionFenetreSetting from '../../actions/ListActionFenetreSetting'

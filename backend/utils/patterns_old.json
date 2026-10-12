@@ -1,51 +1,116 @@
 {
-    "SECRET": {
-      "_description": "Détection des secrets (Clés API, JWT, Clés Privées). Action: SUPPRESSION de la ligne.",
-      "patterns": [
-        "(?i)(api_key|client_secret|auth_token|password|passwd|access_token|secret)\\s*[:=]\\s*[\"'][^\"']+[\"']",
-        "-----BEGIN [A-Z ]+ PRIVATE KEY-----",
-        "(?:eyJ|eyJ).{50,}\\.eyJ|eyJ"
-      ],
-      "action": "REMPLACER"
+  "categories": ["SECRET", "DONNEES_PERSONNELLES", "DB_CONNECTION", "INFOS_RESEAU", "URL_API", "METADATA_PATHS", "URL", "EMAIL", "NIR", "IP", "DATE", "TELEPHONE", "ORGANISATION", "IDEP"],
+  "def_rules": [
+    {
+      "categorie": "SECRET",
+      "pattern": "(?i)(api_key|client_secret|auth_token|password|passwd|access_token|secret)\\s*[:=]\\s*[\"'][^\"']+[\"']",
+      "description": "Détection des secrets (Clés API, JWT, Clés Privées). "
     },
-    "PII_DATA": {
-      "_description": "Données personnelles (Email, Tel, Dates). Action: REMPLACEMENT",
-      "patterns": [
-        "\\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Z|a-z]{2,}\\b",
-        "\\b(?:\\+?\\d{1,3}[-.\\s]?)?\\(?\\d{3}\\)?[-.\\s]?\\d{3}[-.\\s]?\\d{4}\\b",
-        "\\d{2}/\\d{2}/\\d{4}|\\d{4}-\\d{2}-\\d{2}"
-      ],
-      "action": "REMPLACER"
+    {
+      "categorie": "SECRET",
+      "pattern": "-----BEGIN [A-Z ]+ PRIVATE KEY-----",
+      "description": "Détection des secrets (Clés API, JWT, Clés Privées)."
     },
-    "DB_CONNECTION": {
-      "_description": "Information connexion BDD (chemin de connection et variables de configuration. Action: SUPPRESSION de la ligne.",
-      "patterns": [
-        "jdbc:[a-z]+://[^\\s\"']+",
-        "(?i)(db_user|db_password|database_url)\\s*[:=]\\s*[\"'][^\"']+[\"']"
-      ],
-      "action": "REMPLACER"
+    {
+      "categorie": "SECRET",
+      "pattern": "(?:eyJ|eyJ).{50,}\\.eyJ|eyJ",
+      "description": "Détection des secrets (Clés API, JWT, Clés Privées)."
     },
-    "INFRA_NETWORK": {
-      "_description": "Information sur la structure du reseau. Action: SUPPRESSION de la ligne.",
-      "patterns": [
-        "\\b(?:\\d{1,3}\\.){3}\\d{1,3}\\b",
-        "[a-zA-Z0-9.-]+\\.(?:internal|local|lan|corp|priv)",
-        "[a-z0-9.-]+\\.s3\\.amazonaws\\.com"
-      ],
-      "action": "REMPLACER"
+    {
+      "categorie": "DONNEES_PERSONNELLES",
+      "pattern": "\\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Z|a-z]{2,}\\b",
+      "description": "Données personnelles (Email, Tel, Dates)."
     },
-    "URL_API": {
-      "_description": "lien url de connection vers API. Action: SUPPRESSION de la ligne.",
-      "patterns": [
-        "https?://[a-zA-Z0-9.-]+(?:/[a-zA-Z0-9._\\-/]*)?"
-      ],
-      "action": "REMPLACER"
+    {
+      "categorie": "DONNEES_PERSONNELLES",
+      "pattern": "\\b(?:\\+?\\d{1,3}[-.\\s]?)?\\(?\\d{3}\\)?[-.\\s]?\\d{3}[-.\\s]?\\d{4}\\b",
+      "description": "Données personnelles (Email, Tel, Dates)."
     },
-    "METADATA_PATHS": {
-      "_description": "Chemin absolu des fichiers locaux. Action: SUPPRESSION de la ligne.",
-      "patterns": [
-        "(?:/home/|/Users/|C:\\\\Users\\\\)[a-zA-Z0-9._\\\\-\\\\ ]+"
-      ],
-      "action": "REMPLACER"
+    {
+      "categorie": "DONNEES_PERSONNELLES",
+      "pattern": "\\d{2}/\\d{2}/\\d{4}|\\d{4}-\\d{2}-\\d{2}",
+      "description": "Données personnelles (Email, Tel, Dates)."
+    },
+    {
+      "categorie": "DB_CONNECTION",
+      "pattern": "jdbc:[a-z]+://[^\\s\"']+",
+      "description": "Information connexion BDD (chemin de connection et variables de configuration."
+    },
+    {
+      "categorie": "DB_CONNECTION",
+      "pattern": "(?i)(db_user|db_password|database_url)\\s*[:=]\\s*[\"'][^\"']+[\"']",
+      "description": "Information connexion BDD (chemin de connection et variables de configuration."
+    },
+    {
+      "categorie": "INFOS_RESEAU",
+      "pattern": "\\b(?:\\d{1,3}\\.){3}\\d{1,3}\\b",
+      "description": "Information sur la structure du reseau."
+    },
+    {
+      "categorie": "INFOS_RESEAU",
+      "pattern": "[a-zA-Z0-9.-]+\\.(?:internal|local|lan|corp|priv)",
+      "description": "Information sur la structure du reseau."
+    },
+    {
+      "categorie": "INFOS_RESEAU",
+      "pattern": "[a-z0-9.-]+\\.s3\\.amazonaws\\.com",
+      "description": "Information sur la structure du reseau."
+    },
+    {
+      "categorie": "URL_API",
+      "pattern": "https?://[a-zA-Z0-9.-]+(?:/[a-zA-Z0-9._\\-/]*)?",
+      "description": "lien url de connection vers API."
+    },
+    {
+      "categorie": "METADATA_PATHS",
+      "pattern": "(?:/home/|/Users/|C:\\\\Users\\\\)[a-zA-Z0-9._\\\\-\\\\ ]+",
+      "description": "Chemin absolu des fichiers locaux."
+    },
+    {
+      "categorie": "URL",
+      "pattern": "(?<![a-zA-Z0-9_@.-])(?:https?:\\/\\/)?(?:[a-z0-9-]+\\.)*insee\\.[a-z]{2,}(?:\\.[a-z]{2,})*(?::\\d+)?(?:[\\/ ?#][^\\s<>\"'`\\[\\]]*)?",
+      "description": "URL pointant vers un domaine insee (protocole, port et chemin inclus)."
+    },
+    {
+      "categorie": "EMAIL",
+      "pattern": "(?<![\\w.+-])[\\w.!#$%&'*+\\/=\\?^`{|}~-]+@(?:[a-z0-9-]+\\.)+[a-z]{2,}\\b",
+      "description": "Adresse e-mail (RFC 5322 simplifiée)."
+    },
+    {
+      "categorie": "NIR",
+      "pattern": "(?<![a-zA-Z0-9_])[12][ .\\u00a0-]?\\d{2}[ .\\u00a0-]?\\d{2}[ .\\u00a0-]?(?:\\d{2}|2[ABab])[ .\\u00a0-]?\\d{3}[ .\\u00a0-]?\\d{3}(?:[ .\\u00a0-]?\\d{2})?(?![a-zA-Z0-9_])",
+      "description": "Numéro de sécurité sociale (NIR), clé à 2 chiffres optionnelle, séparateurs espace/point/tiret."
+    },
+    {
+      "categorie": "IP",
+      "pattern": "(?<!\\d\\.)(?:\\d{1,3}\\.){3}\\d{1,3}(?!\\.\\d)",
+      "description": "Adresse IPv4 (validation octet ≤ 255 à faire côté code)."
+    },
+    {
+      "categorie": "DATE",
+      "pattern": "(?<!\\d[-\\/.])(?:\\d{4}-\\/.-\\/.|(?:0?[1-9]|[12]\\d|3[01])-\\/.-\\/.)(?![-\\/.]\\d)",
+      "description": "Date numérique AAAA-MM-JJ ou JJ-MM-AAAA, séparateurs - / ."
+    },
+    {
+      "categorie": "DATE",
+      "pattern": "(?:0?[1-9]|[12]\\d|3[01])(?:er)?\\s+(?:janvier|f[eé]vrier|mars|avril|mai|juin|juillet|ao[uû]t|septembre|octobre|novembre|d[eé]cembre)\\s+\\d{4}",
+      "description": "Date littérale française (ex. 12 octobre 2026, 1er mai 2025)."
+    },
+    {
+      "categorie": "TELEPHONE",
+      "pattern": "(?<![a-zA-Z0-9_])(?:01-9{4}|(?:\\+33|0033)[ .\\u00a0-]?(?:\\(0\\)[ .\\u00a0-]?)?1-9{4})(?![a-zA-Z0-9_])",
+      "description": "Téléphone français (0X XX XX XX XX ou +33/0033)."
+    },
+    {
+      "categorie": "ORGANISATION",
+      "pattern": "(?i)(?:institut\\s+national\\s+de\\s+la\\s+statistique\\s+et\\s+des\\s+\\u00e9tudes\\s+\\u00e9conomiques|insee)",
+      "description": "Nom complet de l'INSEE ou acronyme."
+    },
+    {
+      "categorie": "IDEP",
+      "pattern": "(?i)(?<![a-zA-Z0-9_])(?=[a-z0-9]{0,5}\\d)[a-z0-9]{6}(?![a-zA-Z0-9_])",
+      "description": "Identifiant IDEP : 6 caractères alphanumériques contenant au moins un chiffre."
     }
-  }
+  ]
+  
+}

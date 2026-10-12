@@ -21,32 +21,36 @@ def load_config_etude():
     Raises:
         SystemExit: Si le fichier est introuvable ou si le format JSON est invalide.
     """
-    current_dir = Path(__file__).parent.absolute()
-    config_path = current_dir / "utils" / "patterns.json"
-        
-
+    config_path = "utils/patterns.json"
     config = load_json(config_path)
 
     if config:
-        regex_engines = config
-        dict_proposition = {key: {} for key in regex_engines.keys()}
+        dict_proposition = config.get("categories",[])
+        regex_engines = config.get("def_rules",[])
     else:
         return
 
-    config_path = current_dir / "utils" / "divers.json"
-
-
+    config_path = "utils/settings.json"
     config = load_json(config_path)
+    print(config)
     
     if config:
         target_extensions = config.get("target_extensions", [])
         ignored_extensions = config.get("ignored_extensions", [])
-        ignored_dossiers = config.get("ignored_dossiers", [])
+        ignored_dossiers = config.get('ignored_directories', [])
+    else:
+        return
+
+    config_path = "utils/custom_entities.json"
+    config = load_json(config_path)
+    
+    if config:
         nom_fichier = config.get("nom_fichier",[])
     else:
         return
 
     return regex_engines, target_extensions, ignored_extensions, ignored_dossiers, nom_fichier, dict_proposition
+
 
 def load_json(chemin):
     directory = Path(chemin).absolute()
@@ -98,12 +102,14 @@ def save_json(results, chemin_principal, chemin_complementaire):
     Returns:
         Path: Le chemin complet vers le fichier JSON généré.
     """
-    chemin_enregistrement = Path(chemin_principal / chemin_complementaire)
-    chemin_enregistrement.parent.mkdir(parents=True, exist_ok=True)
+    # chemin_enregistrement = Path(chemin_principal / chemin_complementaire)
+    # chemin_enregistrement.parent.mkdir(parents=True, exist_ok=True)
+    chemin_enregistrement = Path("utils")/chemin_complementaire
         
     with open(chemin_enregistrement, 'w', encoding='utf-8') as f:
+    #with open(chemin_complementaire, 'w', encoding='utf-8') as f:
         json.dump(results, f, indent=4, ensure_ascii=False)
-    return chemin_enregistrement
+    #return chemin_enregistrement
 
 # En cours de construction TO DO
 # def save_fichier(chemin, contenu, modif_nom):

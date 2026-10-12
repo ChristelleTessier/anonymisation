@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { fetch_custom_entities, save_custom_entities } from '../../../services/api_services'
+import { fetch_custom_entities, save_custom_entities } from '../../../services/api_settings_services'
 import ListActionFenetreSetting from '../../actions/ListActionFenetreSetting'
 import ConfigModal from '../generic/ConfigModal'
 import EditableTagList from '../generic/EditableTagList'

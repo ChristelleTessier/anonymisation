@@ -4,7 +4,7 @@ import ScanSettingsPanel from './config/specific/ScanSettingsPanel'
 import CustomEntitiesPanel from './config/specific/CustomEntitiesPanel'
 import DownloadButton from './common/DownloadButton'
 import UploadConfigModal from './config/generic/UploadConfigModal'
-import { download_config_archive } from '../services/api_services'
+import { download_config_archive } from '../services/api_settings_services'
 
 function ConfigSetting({ variable_list, set_variable_list }) {
   const [is_upload_modal_open, set_is_upload_modal_open] = useState(false)

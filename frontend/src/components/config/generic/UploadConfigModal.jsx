@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import ConfigModal from '../generic/ConfigModal'
-import { fetch_config_specs } from '../../../services/api_services'
+import { fetch_config_specs } from '../../../services/api_settings_services'
 
 function UploadConfigModal({ is_open, on_close, on_confirm_upload }) {
   const [specs, set_specs] = useState(null)

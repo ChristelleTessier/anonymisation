@@ -7,32 +7,27 @@
     ".log",
     ".md",
     ".docx",
-    ".pdf"
+    ".pdf",
+    ".java",
+    ".py",
+    ".yaml",
+    ".yml",
+    ".log"
   ],
+
   "ignored_extensions": [
-    ".dll",
-    ".bin",
-    ".pyc",
-    ".zip",
-    ".tar",
-    ".gz",
-    ".png",
-    ".jpg",
-    ".jpeg",
-    ".svg",
-    ".mp4"
+    ".env"
   ],
+
   "ignored_directories": [
     ".git",
-    "node_modules",
-    "pycache",
-    ".vscode",
-    ".idea",
-    "dist",
-    "build",
     ".env",
-    ".venv"
+    ".venv",
+    "pycache",
+    "node_modules",
+    "target"
   ],
+
   "target_categories": [
     "identifiants",
     "coordonnees",

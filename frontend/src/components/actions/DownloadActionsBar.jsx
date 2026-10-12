@@ -1,5 +1,5 @@
 import DownloadButton from '../common/DownloadButton'
-import { download_config_archive } from '../../services/api_services'
+import { download_config_archive } from '../../services/api_settings_services'
 
 function DownloadActionsBar() {
   return (
