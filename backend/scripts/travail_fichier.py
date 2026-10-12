@@ -32,7 +32,6 @@ def load_config_etude():
 
     config_path = "utils/settings.json"
     config = load_json(config_path)
-    print(config)
     
     if config:
         target_extensions = config.get("target_extensions", [])
@@ -87,7 +86,7 @@ def load_fichier_en_texte(chemin_fichier):
 # ENREGISTREMENT DE FICHIER
 # =========================================================================
 
-def save_json(results, chemin_principal, chemin_complementaire):
+def save_json(results, chemin_complementaire):
     """
     Sauvegarde le rapport d'analyse dans un fichier JSON structuré.
 
@@ -102,41 +101,9 @@ def save_json(results, chemin_principal, chemin_complementaire):
     Returns:
         Path: Le chemin complet vers le fichier JSON généré.
     """
-    # chemin_enregistrement = Path(chemin_principal / chemin_complementaire)
-    # chemin_enregistrement.parent.mkdir(parents=True, exist_ok=True)
     chemin_enregistrement = Path("utils")/chemin_complementaire
         
     with open(chemin_enregistrement, 'w', encoding='utf-8') as f:
     #with open(chemin_complementaire, 'w', encoding='utf-8') as f:
         json.dump(results, f, indent=4, ensure_ascii=False)
-    #return chemin_enregistrement
 
-# En cours de construction TO DO
-# def save_fichier(chemin, contenu, modif_nom):
-#     """
-#     Gère l'enregistrement en conservant l'arborescence dans le dossier d'enregistrement
-#     """
-#     chemin_source = Path(chemin_source)
-        
-#     # 1. Calculer le chemin relatif par rapport au dossier de travail (chemin_dir)
-#     try:
-#         chemin_relatif = chemin_source.relative_to(self.chemin_dir)
-#     except ValueError:
-#         # Si le fichier n'est pas dans le dossier de travail, on utilise juste son nom
-#         chemin_relatif = Path(chemin_source.name)
-
-#     # 2. Appliquer le nouveau nom si spécifié
-#     if modif_nom:
-#         chemin_relatif = chemin_relatif.with_name(modif_nom)
-
-#     # 3. Construire le chemin de destination final dans le dossier d'enregistrement
-#     chemin_destination = self.chemin_enregistrement / chemin_relatif
-
-#     # 4. Écriture
-#     try:
-#         # Créer les dossiers parents dans le dossier d'enregistrement
-#         chemin_destination.parent.mkdir(parents=True, exist_ok=True)
-#         chemin_destination.write_text(contenu_modifie, encoding='utf-8')
-#         print(f"✅ Sauvegardé : {chemin_destination.relative_to(self.chemin_enregistrement)}")
-#     except Exception as e:
-#         print(f"❌ Erreur d'écriture vers {chemin_destination}: {e}")

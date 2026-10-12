@@ -207,16 +207,11 @@ class AdvancedAnalyzer:
     
         # 1. Gestion de la destination
         source_dir = Path(self.directory).absolute()
-        # local_dir = Path.cwd()
-    
-        # target_dir = local_dir / f"{source_dir.name}_anonymized"
         
-        # 3. Boucle d'analyse
+        # 2. Boucle d'analyse
         self._recursive_scan(source_dir)
         
-                    
-        # 4. Sauvegarde
-        #final_json_path = 
-        save_json(self.changes, "", "proposition_changes_plan.json")
+        # 3. Sauvegarde 
+        save_json(self.changes, "proposition_changes_plan.json")
     
     
