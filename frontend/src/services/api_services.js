@@ -1,5 +1,17 @@
 const API_BASE_URL = 'http://127.0.0.1:8000/api'
 
+
+/**
+ * Récupère la mise en forme des json de configuration depuis le backend
+ */
+export async function fetch_config_specs() {
+  const response = await fetch(`${API_BASE_URL}/config-specs`)
+  if (!response.ok) {
+    throw new Error('Impossible de récupérer la structure des configurations')
+  }
+  return response.json()
+}
+
 /**
  * Récupère les paramètres de scan depuis le backend
  */

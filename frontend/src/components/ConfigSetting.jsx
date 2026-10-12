@@ -1,14 +1,19 @@
+import { useState } from 'react'
 import RegexRulesPanel from './config/specific/RegexRulesPanel'
 import ScanSettingsPanel from './config/specific/ScanSettingsPanel'
 import CustomEntitiesPanel from './config/specific/CustomEntitiesPanel'
 import DownloadButton from './common/DownloadButton'
+import UploadConfigModal from './config/generic/UploadConfigModal'
 import { download_config_archive } from '../services/api_services'
 
 function ConfigSetting({ variable_list, set_variable_list }) {
-  const handle_upload_click = () => {
-    // Action à gérer plus tard
-    console.log('Clic sur Charger ma configuration')
+  const [is_upload_modal_open, set_is_upload_modal_open] = useState(false)
+
+  const handle_confirm_upload = (selected_files) => {
+    console.log('Fichiers sélectionnés pour le chargement :', selected_files)
+    // Ici, vous pourrez déclencher la logique de chargement / import
   }
+
   return (
     <section className="config_section card_section">
       <h2 className="section_title">Paramètres de configuration</h2>
@@ -37,12 +42,18 @@ function ConfigSetting({ variable_list, set_variable_list }) {
         <button
           type="button"
           className="upload_action_btn"
-          onClick={handle_upload_click}
+          onClick={() => set_is_upload_modal_open(true)}
         >
           Charger ma configuration
         </button>
-        {/* Vous pourrez ajouter ici d'autres boutons au fur et à mesure */}
       </div>
+
+      {/* Fenêtre modale de chargement */}
+      <UploadConfigModal
+        is_open={is_upload_modal_open}
+        on_close={() => set_is_upload_modal_open(false)}
+        on_confirm_upload={handle_confirm_upload}
+      />
     </section>
   )
 }

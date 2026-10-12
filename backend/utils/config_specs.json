@@ -1,0 +1,20 @@
+{
+  "pattern": {
+    "label": "Règles Regex",
+    "filename": "pattern.json",
+    "description": "Définit les expressions régulières pour l'anonymisation.",
+    "example_structure": {  }
+  },
+  "scan_settings": {
+    "label": "Paramètres de scan",
+    "filename": "scan_settings.json",
+    "description": "Extensions et répertoires pris en compte ou ignorés.",
+    "example_structure": {  }
+  },
+  "custom_entities": {
+    "label": "Paramètres personnalisés",
+    "filename": "custom_entities.json",
+    "description": "Liste des valeurs ou mots-clés spécifiques.",
+    "example_structure": [  ]
+  }
+}
