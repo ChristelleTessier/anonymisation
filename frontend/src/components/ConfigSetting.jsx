@@ -1,17 +1,17 @@
-import RegexRulesPanel from './config/RegexRulesPanel'
-import ScanSettingsPanel from './config/ScanSettingsPanel'
-import CustomEntitiesPanel from './config/CustomEntitiesPanel'
+import RegexRulesPanel from './config/specific/RegexRulesPanel'
+import ScanSettingsPanel from './config/specific/ScanSettingsPanel'
+import CustomEntitiesPanel from './config/specific/CustomEntitiesPanel'
 import DownloadButton from './common/DownloadButton'
 import { download_config_archive } from '../services/api_services'
 
-function ConfigPanelsGrid({ variable_list, set_variable_list }) {
+function ConfigSetting({ variable_list, set_variable_list }) {
   const handle_upload_click = () => {
     // Action à gérer plus tard
     console.log('Clic sur Charger ma configuration')
   }
   return (
-    <section className="config_section">
-      <h2 className="config_section_title">Paramètres de configuration</h2>
+    <section className="config_section card_section">
+      <h2 className="section_title">Paramètres de configuration</h2>
 
       <div className="config_panels_grid">
         {/* Élément 1 */}
@@ -47,4 +47,4 @@ function ConfigPanelsGrid({ variable_list, set_variable_list }) {
   )
 }
 
-export default ConfigPanelsGrid
+export default ConfigSetting

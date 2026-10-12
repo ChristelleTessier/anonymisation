@@ -1,4 +1,4 @@
-import DownloadButton from './DownloadButton'
+import DownloadButton from '../common/DownloadButton'
 import { download_config_archive } from '../../services/api_services'
 
 function DownloadActionsBar() {

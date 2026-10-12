@@ -1,4 +1,4 @@
-function ModalActionFooter({
+function ListActionFenetreSetting({
   has_changes = false,
   on_confirm,
   on_cancel,
@@ -34,4 +34,4 @@ function ModalActionFooter({
   )
 }
 
-export default ModalActionFooter
+export default ListActionFenetreSetting

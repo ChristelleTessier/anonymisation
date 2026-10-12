@@ -1,26 +1,20 @@
-.config_section {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
 
-.config_section_title {
-  font-size: 1.4rem;
-  font-weight: 600;
-  color: #1e293b;
-  margin: 0 0 16px 0;
-  text-align: center;
-}
-
+/* ==========================================================================
+   GRILLE À 3 COLONNES FIXES
+   Maintient strictement 3 cartes côte à côte (3 colonnes égales).
+   ========================================================================== */
 .config_panels_grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, 1fr); /* 3 colonnes égales et obligatoires */
   gap: 20px;
   width: 100%;
   margin-bottom: 20px;
 }
 
+/* ==========================================================================
+   CARTES DE CONFIGURATION
+   Cadre blanc avec légère ombre pour isoler chaque bloc de paramétrage.
+   ========================================================================== */
 .config_card {
   background-color: #ffffff;
   border: 1px solid #e2e8f0;
@@ -32,24 +26,27 @@
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
 }
 
+/* Titre de chaque carte */
 .card_title {
   font-size: 1.05rem;
   font-weight: 600;
   color: #1e293b;
-  margin: 0 0 4px 0;
+  margin-bottom: 4px;
   text-align: center;
 }
 
+/* Sous-titre ou description technique en police monospace */
 .card_description {
   font-size: 0.8rem;
   color: #64748b;
   text-align: center;
-  margin: 0 0 12px 0;
+  margin-bottom: 12px;
   font-family: monospace;
 }
 
+/* Zone vide / en attente de données avec bordure pointillée */
 .card_content_placeholder {
-  flex: 1;
+  flex: 1; /* Occupe tout l'espace vertical disponible */
   border: 1px dashed #cbd5e1;
   border-radius: 6px;
   background-color: #f8fafc;
@@ -61,26 +58,28 @@
   font-size: 0.85rem;
 }
 
+/* Interaction visuelle au survol pour les cartes cliquables */
 .clickable_card {
   cursor: pointer;
   transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
 }
 
 .clickable_card:hover {
-  transform: translateY(-2px);
+  transform: translateY(-2px); /* Soulèvement subtil */
   border-color: #94a3b8;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
+/* Conteneur de résumé centré au milieu de la carte */
 .card_summary_view {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 8px;
-  margin-top: auto;
-  margin-bottom: auto;
+  margin: auto 0;
 }
 
+/* Badge statut ou résumé */
 .summary_badge {
   background-color: #f1f5f9;
   color: #334155;
@@ -90,6 +89,7 @@
   font-weight: 500;
 }
 
+/* Indication textuelle invitant au clic */
 .click_hint {
   font-size: 0.75rem;
   color: #2563eb;
@@ -97,32 +97,24 @@
   font-weight: 500;
 }
 
-@media (max-width: 768px) {
-  .config_panels_grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-
 /* ==========================================================================
-   Barre d'actions de configuration (Télécharger & Charger)
+   BARRE D'ACTIONS (TÉLÉCHARGER / CHARGER)
+   Zone horizontale en bas de section pour les boutons d'action.
    ========================================================================== */
-
 .config_actions_bar {
   display: flex;
-  justify-content: center;
   align-items: center;
   gap: 16px;
   width: 100%;
   max-width: 960px;
-  margin: 24px auto 0 auto;
+  margin: 24px auto 0;
   padding: 0 4px;
 }
 
-/* Base commune aux boutons de la barre */
+/* Base commune aux boutons d'action */
 .download_action_btn,
 .upload_action_btn {
-  flex: 1;
+  flex: 1; /* Chaque bouton occupe 50% de la largeur disponible */
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -132,39 +124,57 @@
   font-weight: 500;
   border-radius: 9999px;
   cursor: pointer;
-  transition: all 0.2s ease-in-out;
+  transition: 0.2s ease;
 }
 
-/* --- Bouton Télécharger (vert d'eau) --- */
+/* Bouton Télécharger (action principale verte) */
 .download_action_btn {
   color: #ffffff;
-  background-color: #5bbfa4;
-  border: none;
-  box-shadow: 0 4px 14px rgba(91, 191, 164, 0.25);
+  background-color: var(--btn_download_bg);
+  border: 0;
+  box-shadow: 0 4px 14px rgba(93, 163, 119, 0.25);
 }
 
 .download_action_btn:hover:not(:disabled) {
-  background-color: #4cae93;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(76, 174, 147, 0.35);
+  background-color: var(--btn_download_hover);
 }
 
 .download_action_btn:active:not(:disabled) {
   transform: translateY(0);
-  box-shadow: 0 4px 12px rgba(76, 174, 147, 0.2);
 }
 
 .download_action_btn:disabled {
-  opacity: 0.6;
+  background-color: var(--btn_disabled_bg);
+  color: var(--btn_disabled_text);
   cursor: not-allowed;
   box-shadow: none;
 }
 
-.download_icon {
-  flex-shrink: 0;
-  stroke: #ffffff;
+/* Bouton Charger (action secondaire blanche) */
+.upload_action_btn {
+  color: #ffffff;
+  background-color: var(--btn_neutral_bg);
+  border: 0;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
 }
 
+.upload_action_btn:hover {
+  background-color: var(--btn_neutral_hover);
+}
+
+.upload_action_btn:active {
+  transform: translateY(0);
+}
+
+/* Icônes SVG des boutons */
+.download_icon,
+.upload_icon {
+  flex-shrink: 0;
+}
+.download_icon { stroke: #ffffff; }
+.upload_icon   { stroke: #475569; }
+
+/* Spinner circulaire de chargement */
 .download_spinner {
   width: 14px;
   height: 14px;
@@ -174,31 +184,7 @@
   animation: spin 0.6s linear infinite;
 }
 
-/* --- Bouton Charger (fond blanc épuré) --- */
-.upload_action_btn {
-  color: #1e293b;
-  background-color: #ffffff;
-  border: 1px solid #cbd5e1;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
-}
-
-.upload_action_btn:hover {
-  background-color: #f8fafc;
-  border-color: #94a3b8;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-}
-
-.upload_action_btn:active {
-  transform: translateY(0);
-}
-
-.upload_icon {
-  flex-shrink: 0;
-  stroke: #475569;
-}
-
-/* Animation rotation pour spinners */
+/* Animation infinie pour le spinner */
 @keyframes spin {
   to {
     transform: rotate(360deg);

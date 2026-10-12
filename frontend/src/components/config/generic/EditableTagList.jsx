@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import ListActionToolbar from '../common/ListActionToolbar'
+import ListActionToolbar from '../../actions/ListActionToolbar'
 
 function EditableTagList({ label, items = [], on_update_items }) {
   // Mode actif : null | 'adding' | 'deleting'

@@ -1,15 +1,14 @@
-.folder_section {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
 
+
+/* ==========================================================================
+   ZONE DE GLISSER-DÉPOSER (DROP ZONE)
+   Cadre pointillé accueillant le glisser-déposer de dossiers ou fichiers.
+   ========================================================================== */
 .drop_box {
   width: 100%;
   box-sizing: border-box;
   padding: 48px 32px;
-  border: 2px dashed #94a3b8;
+  border: 2px dashed #94a3b8; /* Bordure pointillée caractéristique d'un champ drop */
   border-radius: 12px;
   background-color: #f1f5f9;
   display: flex;
@@ -17,14 +16,16 @@
   align-items: center;
   justify-content: center;
   gap: 16px;
-  transition: all 0.2s ease-in-out;
+  transition: 0.2s ease;
 }
 
+/* Retour visuel actif lorsque l'utilisateur survole la zone avec un fichier */
 .drop_box.dragging {
-  border-color: #2563eb;
-  background-color: #eff6ff;
+  border-color: #2563eb; /* Bleu vif pour confirmer la détection */
+  background-color: #eff6ff; /* Teinte bleutée claire en arrière-plan */
 }
 
+/* Texte d'instruction principal ("Glissez-déposez un dossier ici...") */
 .drop_label {
   margin: 0;
   font-size: 1.15rem;
@@ -32,11 +33,16 @@
   color: #1e293b;
 }
 
+/* Séparateur textuel (ex. "ou") entre le glisser-déposer et la saisie */
 .drop_separator {
   color: #64748b;
   font-size: 0.9rem;
 }
 
+/* ==========================================================================
+   CHAMP DE SAISIE DE CHEMIN / DOSSIER
+   Alternative manuelle permettant de renseigner directement un chemin.
+   ========================================================================== */
 .folder_input {
   width: 100%;
   max-width: 440px;
@@ -50,30 +56,37 @@
   box-sizing: border-box;
 }
 
+/* Mise en évidence du champ au focus */
 .folder_input:focus {
   border-color: #2563eb;
   box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.15);
 }
 
+/* ==========================================================================
+   BOUTON DE TRAITEMENT (ANONYMISATION)
+   Déclenche l'action principale une fois le dossier sélectionné.
+   ========================================================================== */
 .anonymize_button {
   margin-top: 28px;
   padding: 12px 36px;
   font-size: 1rem;
   font-weight: 600;
   color: #ffffff;
-  background-color: #0284c7;
-  border: none;
+  background-color: var(--btn_neutral_bg);
+  border: 0;
   border-radius: 8px;
   cursor: pointer;
-  transition: background-color 0.2s ease, opacity 0.2s ease;
+  transition: 0.2s ease;
 }
 
+/* État survol actif */
 .anonymize_button:hover:not(:disabled) {
-  background-color: #0369a1;
+  background-color: var(--btn_neutral_hover);
 }
 
+/* État inactif tant qu'aucun dossier valide n'est fourni */
 .anonymize_button:disabled {
-  background-color: #94a3b8;
+  background-color: var(--btn_disabled_bg);
   cursor: not-allowed;
   opacity: 0.7;
 }

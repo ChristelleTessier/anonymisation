@@ -1,19 +1,24 @@
+/* ==========================================================================
+   SECTION DE GESTION DES VARIABLES
+   Conteneur vertical centré organisant les formulaires et listes de badges.
+   ========================================================================== */
 .variables_section {
-  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 16px;
 }
 
+/* Titre intermédiaire de niveau 2 */
 .sub_title {
+  margin: 0;
   font-size: 1.35rem;
   font-weight: 600;
   color: #1e293b;
-  margin: 0;
   text-align: center;
 }
 
+/* Conteneur principal de formulaire et liste d'entités */
 .custom_entities_container {
   display: flex;
   flex-direction: column;
@@ -21,12 +26,16 @@
   flex: 1;
 }
 
+/* ==========================================================================
+   FORMULAIRE DE SAISIE (CHAMP + BOUTON D'AJOUT)
+   ========================================================================== */
 .entity_form {
   display: flex;
   gap: 6px;
   width: 100%;
 }
 
+/* Champs textuels pour renseigner une nouvelle valeur */
 .entity_input,
 .variable_input {
   flex: 1;
@@ -43,14 +52,15 @@
   box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.15);
 }
 
+/* Boutons d'ajout (reliés au thème neutre de base.css) */
 .entity_add_btn,
 .add_button {
   padding: 8px 14px;
   font-size: 0.85rem;
   font-weight: 600;
   color: #ffffff;
-  background-color: #0f172a;
-  border: none;
+  background-color: var(--btn_neutral_bg);
+  border: 0;
   border-radius: 6px;
   cursor: pointer;
   transition: background-color 0.2s ease;
@@ -59,16 +69,21 @@
 
 .entity_add_btn:hover:not(:disabled),
 .add_button:hover:not(:disabled) {
-  background-color: #334155;
+  background-color: var(--btn_neutral_hover);
 }
 
 .entity_add_btn:disabled,
 .add_button:disabled {
-  background-color: #cbd5e1;
+  background-color: var(--btn_disabled_bg);
+  color: var(--btn_disabled_text);
   cursor: not-allowed;
   opacity: 0.7;
 }
 
+/* ==========================================================================
+   ZONE D'AFFICHAGE DES BADGES / LISTE
+   Cadre à hauteur contrainte avec défilement vertical interne.
+   ========================================================================== */
 .entity_badges_area {
   flex: 1;
   min-height: 100px;
@@ -82,13 +97,15 @@
   align-items: flex-start;
 }
 
+/* Message indicatif affiché lorsque la liste est vide */
 .empty_hint {
-  color: #94a3b8;
+  color: var(--btn_disabled_text);
   font-size: 0.8rem;
   font-style: italic;
   margin: auto;
 }
 
+/* Enveloppe fluide des badges avec retour à la ligne automatique */
 .badges_wrap,
 .variables_list {
   display: flex;
@@ -97,28 +114,34 @@
   width: 100%;
 }
 
+/* ==========================================================================
+   BADGES INDIVIDUELS
+   Pastilles arrondies représentant chaque variable ou entité enregistrée.
+   ========================================================================== */
 .entity_badge,
 .variable_badge {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  background-color: #e2e8f0;
+  background-color: var(--btn_disabled_bg);
   color: #1e293b;
   padding: 3px 8px;
   border-radius: 9999px;
   font-size: 0.8rem;
 }
 
+/* Bouton croix pour retirer une valeur (danger au survol) */
 .badge_close {
   background: none;
-  border: none;
-  color: #64748b;
+  border: 0;
+  color: var(--btn_neutral_bg);
   font-size: 1rem;
   line-height: 1;
   cursor: pointer;
   padding: 0;
+  transition: color 0.15s ease;
 }
 
 .badge_close:hover {
-  color: #ef4444;
+  color: var(--btn_danger_bg);
 }

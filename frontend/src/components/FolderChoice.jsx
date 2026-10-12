@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-function FolderDropZone({ folder_path, set_folder_path, on_anonymize, is_processing }) {
+function FolderChoice({ folder_path, set_folder_path, on_anonymize, is_processing }) {
   const [is_dragging, set_is_dragging] = useState(false)
 
   const handle_drop = (e) => {
@@ -32,7 +32,10 @@ function FolderDropZone({ folder_path, set_folder_path, on_anonymize, is_process
   }
 
   return (
-    <section className="folder_section">
+    <section className="folder_section card_section">
+
+      <h2 className="folder_section_title">Anonymisation du dossier</h2>
+
       <div
         className={`drop_box ${is_dragging ? 'dragging' : ''}`}
         onDrop={handle_drop}
@@ -61,4 +64,4 @@ function FolderDropZone({ folder_path, set_folder_path, on_anonymize, is_process
   )
 }
 
-export default FolderDropZone
+export default FolderChoice

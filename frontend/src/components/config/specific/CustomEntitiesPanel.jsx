@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react'
-import { fetch_custom_entities, save_custom_entities } from '../../services/api_services'
-import ModalActionFooter from '../common/ModalActionFooter'
-import ConfigModal from './ConfigModal'
-import EditableTagList from './EditableTagList'
+import { fetch_custom_entities, save_custom_entities } from '../../../services/api_services'
+import ListActionFenetreSetting from '../../actions/ListActionFenetreSetting'
+import ConfigModal from '../generic/ConfigModal'
+import EditableTagList from '../generic/EditableTagList'
 
 
 function format_raw_entities(data) {
@@ -126,7 +126,7 @@ function CustomEntitiesPanel() {
             on_update_items={handle_update_items}
           />
 
-          <ModalActionFooter
+          <ListActionFenetreSetting
             has_changes={has_changes}
             on_confirm={handle_confirm_all}
             on_cancel={handle_cancel_all}

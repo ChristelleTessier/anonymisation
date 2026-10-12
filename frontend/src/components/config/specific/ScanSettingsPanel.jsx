@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react'
-import { fetch_scan_settings, save_scan_settings} from '../../services/api_services'
-import ConfigModal from './ConfigModal'
-import EditableTagList from './EditableTagList'
-import ModalActionFooter from '../common/ModalActionFooter'
+import { fetch_scan_settings, save_scan_settings} from '../../../services/api_services'
+import ConfigModal from '../generic/ConfigModal'
+import EditableTagList from '../generic/EditableTagList'
+import ListActionFenetreSetting from '../../actions/ListActionFenetreSetting'
 
 const SCAN_SECTIONS = [
   { key_name: 'target_extensions', label: 'Extensions cibles' },
@@ -170,7 +170,7 @@ function ScanSettingsPanel() {
             />
           ))}
 
-          <ModalActionFooter
+          <ListActionFenetreSetting
             has_changes={has_changes}
             on_confirm={handle_confirm_all}
             on_cancel={handle_cancel_all}
