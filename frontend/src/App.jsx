@@ -1,6 +1,6 @@
 import { useState } from 'react'
-import ConfigPanelsGrid from './components/ConfigPanelsGrid'
-import FolderDropZone from './components/FolderDropZone'
+import ConfigSetting from './components/ConfigSetting'
+import FolderChoice from './components/FolderChoice'
 import './App.css'
 
 function App() {
@@ -24,7 +24,7 @@ function App() {
         <h1 className="main_title">Anonymisation de dossier</h1>
 
         {/* 1. Grille de configuration */}
-        <ConfigPanelsGrid
+        <ConfigSetting
           variable_list={variable_list}
           set_variable_list={set_variable_list}
         />
@@ -32,7 +32,7 @@ function App() {
         <hr className="section_divider" />
 
         {/* 2. Dépôt du dossier et action */}
-        <FolderDropZone
+        <FolderChoice
           folder_path={folder_path}
           set_folder_path={set_folder_path}
           on_anonymize={handle_anonymize}
