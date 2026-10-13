@@ -17,7 +17,7 @@ function ValidationPanel({
   if (plan.length === 0) return <div className="validation_empty">Aucun fichier à valider.</div>
 
   const current = plan[current_index]
-  const fileName = (current.chemin_fichier || '').split(/[\\/]/).pop()
+  //const fileName = (current.chemin_fichier || '').split(/[\\/]/).pop()
   const nbAnonymiser = plan.filter((f) => f.decision_fichier === 'o').length
   const nbPasser = plan.length - nbAnonymiser
 
