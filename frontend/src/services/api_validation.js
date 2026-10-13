@@ -3,9 +3,9 @@ const API_BASE_URL = 'http://127.0.0.1:8000/api'
 /**
  * Récupère le plan d'anonymisation généré par analyzer.run()
  */
-export async function fetch_validation_plan(folderPath) {
+export async function fetch_validation_plan() {
   const response = await fetch(
-    `${API_BASE_URL}/validation/plan?folder_path=${encodeURIComponent(folderPath)}`
+    `${API_BASE_URL}/validation/plan`
   )
   if (!response.ok) {
     const errorData = await response.json().catch(() => ({}))

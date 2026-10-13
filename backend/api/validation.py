@@ -34,18 +34,18 @@ class ValidatedPlanRequest(BaseModel):
 # ─── Endpoints ───────────────────────────────────────────
 
 @router.get("/plan")
-def get_plan(folder_path: str):
+def get_plan():
     """
-    Récupère le changes_plan.json généré par analyzer.run().
+    Récupère proposition_changes_plan.json généré par analyzer.run().
     Le paramètre folder_path permet de localiser le bon dossier
     de plan (plan_anonymisation/changes_plan.json).
     """
-    plan_path = Path(folder_path) / "plan_anonymisation" / "changes_plan.json"
+    plan_path = "utils/proposition_changes_plan.json"
 
-    if not plan_path.exists():
+    if not Path(plan_path).exists():
         raise HTTPException(
             status_code=404,
-            detail="Plan d'anonymisation introuvable. L'analyse a-t-elle été lancée ?"
+            detail="Plan d'anonymisation introuvable."
         )
 
     try:
@@ -102,7 +102,7 @@ def submit_validated_plan(request: ValidatedPlanRequest, folder_path: str):
             })
 
     # Sauvegarde
-    output_path = Path(folder_path) / "plan_anonymisation" / "validated_plan.json"
+    output_path = "utils/validated_plan.json"
     output_path.parent.mkdir(parents=True, exist_ok=True)
 
     try:
