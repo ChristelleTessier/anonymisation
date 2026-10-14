@@ -16,94 +16,112 @@
   ],
   "def_rules": [
     {
-      "categorie": "SECRET",
-      "pattern": "(?i)(api_key|client_secret|auth_token|password|passwd|access_token|secret)\\s*[:=]\\s*[\"'][^\"']+[\"']",
-      "description": "Secrets sous forme clé=valeur : clés API, tokens, mots de passe."
+      "categorie": "NIR",
+      "pattern": "(?<![a-zA-Z0-9_])[12][ .\\u00a0-]?\\d{2}[ .\\u00a0-]?\\d{2}[ .\\u00a0-]?(?:\\d{2}|2[ABab])[ .\\u00a0-]?\\d{3}[ .\\u00a0-]?\\d{3}(?:[ .\\u00a0-]?\\d{2})?(?![a-zA-Z0-9_])",
+      "description": "Numéro de sécurité sociale (NIR) : 13 chiffres + clé optionnelle, séparateurs espace/point/tiret.",
+      "priorite": 1
     },
     {
       "categorie": "SECRET",
       "pattern": "-----BEGIN [A-Z ]+ PRIVATE KEY-----",
-      "description": "Clé privée (PEM) : RSA, EC, OPENSSH, etc."
+      "description": "Clé privée (PEM) : RSA, EC, OPENSSH, etc.",
+      "priorite": 1
     },
     {
       "categorie": "SECRET",
       "pattern": "eyJ[A-Za-z0-9_-]{10,}\\.[A-Za-z0-9_-]{10,}\\.?[A-Za-z0-9_-]*",
-      "description": "JWT (tokens signés base64url commençant par eyJ)."
+      "description": "JWT (tokens signés base64url commençant par eyJ).",
+      "priorite": 1
     },
     {
-      "categorie": "DB_CONNECTION",
-      "pattern": "jdbc:[a-z]+://[^\\s\"']+",
-      "description": "Chaîne de connexion JDBC."
-    },
-    {
-      "categorie": "DB_CONNECTION",
-      "pattern": "(?i)(db_user|db_password|database_url)\\s*[:=]\\s*[\"'][^\"']+[\"']",
-      "description": "Identifiants et URL de base de données (clé=valeur)."
-    },
-    {
-      "categorie": "URL_API",
-      "pattern": "https?://[a-zA-Z0-9.-]+(?:/[a-zA-Z0-9._\\-/]*)?",
-      "description": "Lien URL de connexion vers API."
+      "categorie": "SECRET",
+      "pattern": "(?i)(api_key|client_secret|auth_token|password|passwd|access_token|secret)\\s*[:=]\\s*[\"'][^\"']+[\"']",
+      "description": "Secrets sous forme clé=valeur : clés API, tokens, mots de passe.",
+      "priorite": 1
     },
     {
       "categorie": "URL_INSEE",
       "pattern": "(?<![a-zA-Z0-9_@.-])(?:https?:\\/\\/)?(?:[a-z0-9-]+\\.)*insee\\.[a-z]{2,}(?:\\.[a-z]{2,})*(?::\\d+)?(?:[\\/?#][^\\s<>\"'`\\[\\]]*)?",
-      "description": "URL pointant vers un domaine insee (protocole, port et chemin inclus). Priorité sur URL_API."
+      "description": "URL pointant vers un domaine insee (protocole, port et chemin inclus). Priorité sur URL_API.",
+      "priorite": 2
     },
     {
       "categorie": "EMAIL",
       "pattern": "(?<![\\w.+-])[\\w.!#$%&'*+\\/=\\?^`{|}~-]+@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,}\\b",
-      "description": "Adresse e-mail (RFC 5322 simplifiée)."
-    },
-    {
-      "categorie": "NIR",
-      "pattern": "(?<![a-zA-Z0-9_])[12][ .\\u00a0-]?\\d{2}[ .\\u00a0-]?\\d{2}[ .\\u00a0-]?(?:\\d{2}|2[ABab])[ .\\u00a0-]?\\d{3}[ .\\u00a0-]?\\d{3}(?:[ .\\u00a0-]?\\d{2})?(?![a-zA-Z0-9_])",
-      "description": "Numéro de sécurité sociale (NIR) : 13 chiffres + clé optionnelle, séparateurs espace/point/tiret."
+      "description": "Adresse e-mail (RFC 5322 simplifiée).",
+      "priorite": 2
     },
     {
       "categorie": "TELEPHONE",
       "pattern": "(?<![a-zA-Z0-9_])(?:0[1-9](?:[ .\\u00a0-]?\\d{2}){4}|(?:\\+33|0033)[ .\\u00a0-]?(?:\\(0\\)[ .\\u00a0-]?)?[1-9](?:[ .\\u00a0-]?\\d{2}){4})(?![a-zA-Z0-9_])",
-      "description": "Téléphone français : 0X XX XX XX XX ou +33/0033 avec (0) optionnel."
-    },
-    {
-      "categorie": "IP",
-      "pattern": "(?<!\\d\\.)(?:\\d{1,3}\\.){3}\\d{1,3}(?!\\.\\d)",
-      "description": "Adresse IPv4 (validation octet <= 255 à faire côté code)."
-    },
-    {
-      "categorie": "DATE",
-      "pattern": "(?<!\\d[-\\/.])(?:\\d{4}[-\\/.](?:0?[1-9]|1[0-2])[-\\/.](?:0?[1-9]|[12]\\d|3[01])|(?:0?[1-9]|[12]\\d|3[01])[-\\/.](?:0?[1-9]|1[0-2])[-\\/.](?:\\d{4}|\\d{2}))(?![-\\/.]\\d)",
-      "description": "Date numérique AAAA-MM-JJ ou JJ-MM-AAAA (2 ou 4 chiffres pour l'année), séparateurs - / ."
+      "description": "Téléphone français : 0X XX XX XX XX ou +33/0033 avec (0) optionnel.",
+      "priorite": 2
     },
     {
       "categorie": "DATE",
       "pattern": "(?i)(?:0?[1-9]|[12]\\d|3[01])(?:er)?\\s+(?:janvier|f[eé]vrier|mars|avril|mai|juin|juillet|ao[uû]t|septembre|octobre|novembre|d[eé]cembre)\\s+\\d{4}",
-      "description": "Date littérale française (ex. 12 octobre 2026, 1er mai 2025)."
+      "description": "Date littérale française (ex. 12 octobre 2026, 1er mai 2025).",
+      "priorite": 2
     },
     {
-      "categorie": "IDEP",
-      "pattern": "(?i)(?<![a-zA-Z0-9_])(?=[a-z0-9]{0,5}\\d)[a-z0-9]{6}(?![a-zA-Z0-9_])",
-      "description": "Identifiant IDEP : 6 caractères alphanumériques dont au moins un chiffre."
+      "categorie": "DB_CONNECTION",
+      "pattern": "jdbc:[a-z]+://[^\\s\"']+",
+      "description": "Chaîne de connexion JDBC.",
+      "priorite": 3
     },
     {
-      "categorie": "ORGANISATION",
-      "pattern": "(?i)(?:institut\\s+national\\s+de\\s+la\\s+statistique\\s+et\\s+des\\s+\\u00e9tudes\\s+\\u00e9conomiques|insee)",
-      "description": "Nom complet de l'INSEE ou acronyme."
+      "categorie": "DB_CONNECTION",
+      "pattern": "(?i)(db_user|db_password|database_url)\\s*[:=]\\s*[\"'][^\"']+[\"']",
+      "description": "Identifiants et URL de base de données (clé=valeur).",
+      "priorite": 3
+    },
+    {
+      "categorie": "URL_API",
+      "pattern": "https?://[a-zA-Z0-9.-]+(?:/[a-zA-Z0-9._\\-/]*)?",
+      "description": "Lien URL de connexion vers API.",
+      "priorite": 3
     },
     {
       "categorie": "INFOS_RESEAU",
       "pattern": "[a-zA-Z0-9.-]+\\.(?:internal|local|lan|corp|priv)",
-      "description": "Nom de domaine interne (structure réseau)."
+      "description": "Nom de domaine interne (structure réseau).",
+      "priorite": 3
     },
     {
       "categorie": "INFOS_RESEAU",
       "pattern": "[a-z0-9.-]+\\.s3\\.amazonaws\\.com",
-      "description": "Bucket S3 AWS (structure réseau)."
+      "description": "Bucket S3 AWS (structure réseau).",
+      "priorite": 3
     },
     {
       "categorie": "METADATA_PATHS",
       "pattern": "(?:/home/|/Users/|C:\\\\Users\\\\)[a-zA-Z0-9._\\\\-\\\\ ]+",
-      "description": "Chemin absolu des fichiers locaux."
+      "description": "Chemin absolu des fichiers locaux.",
+      "priorite": 3
+    },
+    {
+      "categorie": "IP",
+      "pattern": "(?<!\\d\\.)(?:\\d{1,3}\\.){3}\\d{1,3}(?!\\.\\d)",
+      "description": "Adresse IPv4 (validation octet <= 255 à faire côté code).",
+      "priorite": 4
+    },
+    {
+      "categorie": "DATE",
+      "pattern": "(?<!\\d[-\\/.])(?:\\d{4}[-\\/.](?:0?[1-9]|1[0-2])[-\\/.](?:0?[1-9]|[12]\\d|3[01])|(?:0?[1-9]|[12]\\d|3[01])[-\\/.](?:0?[1-9]|1[0-2])[-\\/.](?:\\d{4}|\\d{2}))(?![-\\/.]\\d)",
+      "description": "Date numérique AAAA-MM-JJ ou JJ-MM-AAAA (2 ou 4 chiffres pour l'année), séparateurs - / .",
+      "priorite": 4
+    },
+    {
+      "categorie": "ORGANISATION",
+      "pattern": "(?i)(?:institut\\s+national\\s+de\\s+la\\s+statistique\\s+et\\s+des\\s+\\u00e9tudes\\s+\\u00e9conomiques|insee)",
+      "description": "Nom complet de l'INSEE ou acronyme.",
+      "priorite": 4
+    },
+    {
+      "categorie": "IDEP",
+      "pattern": "(?i)(?<![a-zA-Z0-9_])(?=[a-z0-9]{0,5}\\d)[a-z0-9]{6}(?![a-zA-Z0-9_])",
+      "description": "Identifiant IDEP : 6 caractères alphanumériques dont au moins un chiffre.",
+      "priorite": 4
     }
   ]
 }

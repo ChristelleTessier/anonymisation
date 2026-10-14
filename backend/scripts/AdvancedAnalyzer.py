@@ -1,4 +1,4 @@
-# TO DO -> vérifier le nom des fichier non scanné
+# TO DO -> vérifier le nom des fichier/dossier non scanné
 
 
 import re
@@ -21,6 +21,8 @@ class AdvancedAnalyzer:
         self.directory = directory
         # Liste des elements a changer
         self.changes=[]
+        # Dictionnaire des propositions
+        self.dict_proposition = {}
 
         # Récupération du fichier des recherches regrex et mise à jour de regex_engines
         retour_config = load_config_etude()
@@ -115,55 +117,120 @@ class AdvancedAnalyzer:
             # 2. Lecture du contenu
             content = path_obj.read_text(encoding='utf-8')
 
-            for regles in self.regex_engines:
-                pattern = regles.get("pattern")
-                categorie = regles.get("categorie")
+            # 3. Tri des règles par priorités croissante (défaut = 99 si absente)
+            regles_triees = sorted(
+                self.regex_engines,
+                key=lambda r: r.get("priorite", 99)
+            )
+
+            # 4. Application de chaque regle avec priorité
+            for regle in regles_triees:
+                pattern = regle.get("pattern")
+                categorie = regle.get("categorie")
+                priorite = regle.get("priorite", 99)
+
 
                 for match in re.finditer(pattern, content):
                     changes.append({ 
                         "category": categorie,
                         "original": match.group(),
+                        "priorite" : priorite,
                         "start": match.start(),
                         "end": match.end()
                         })
 
-            # TO DO
-            return self._deduplicate(changes)
+            # 5. Résolution des chevauchements par priorité
+            detections = self._resolve_overlaps(changes)
+
+            # 6. Génération des propositions (SECRET_1, SECRET_2, EMAIL_1, ...)
+            for d in detections:
+                d["proposition"] = self._generer_proposition(d["category"], d["original"])
+
+            return detections
 
         except Exception as e:
             return [{"error": str(e), "file": str(file_path)}]
 
 
-    # *******************
-    # A re gerer 
-    # *******************
-    def _deduplicate(self, changes):
-        """
-        Élimine les détections redondantes pour éviter les modifications multiples 
-        sur la même zone de texte.
 
-        Cette méthode est cruciale pour garantir l'intégrité du fichier lors de la 
-        phase de transformation. Elle empêche qu'un même intervalle de caractères 
-        soit proposé plusieurs fois (par exemple, si une regex et un autre moteur 
-        identifient simultanément la même donnée).
+    def _resolve_overlaps(self, changes):
+        """
+        Élimine les détections qui se chevauchent en faveur des priorités basses.
+
+        Algorithme :
+        1. Tri par (priorité croissante, span le plus long, start le plus petit).
+           À priorité égale sur un même span exact, la détection la plus longue
+           (donc la plus précise) est retenue.
+        2. Parcours dans cet ordre : une détection est conservée uniquement si
+           son intervalle [start, end] ne chevauche aucune détection déjà
+           acceptée. Les détections de priorité supérieure (numéro plus grand)
+           qui chevauchent une zone déjà couverte sont rejetées.
 
         Args:
-            changes (list[dict]): Une liste de dictionnaires représentant les 
-                changements détectés. Chaque dictionnaire doit contenir les 
-                clés 'file', 'start' et 'end'.
+            changes (list[dict]): Liste des détections avec les clés 'start',
+                'end' et 'priorite'.
 
         Returns:
-            list[dict]: Une liste filtrée ne contenant que des changements 
-                uniques basés sur l'identité (fichier, index de début, index de fin).
+            list[dict]: Liste des détections retenues, triées par position
+                (start croissant) pour faciliter la phase de transformation.
         """
-        unique = []
-        seen = set()
-        for c in changes:
-            key = (c['start'], c['end'])
-            if key not in seen:
-                unique.append(c)
-                seen.add(key)
-        return unique
+        # Tri : priorité croissante, puis détection la plus longue, puis start
+        ordered = sorted(
+            changes,
+            key=lambda c: (c["priorite"], -(c["end"] - c["start"]), c["start"])
+        )
+
+        accepted = []
+        for c in ordered:
+            chevauche = False
+            for a in accepted:
+                # Deux intervalles se chevauchent s'ils partagent au moins un caractère
+                if c["start"] < a["end"] and a["start"] < c["end"]:
+                    chevauche = True
+                    break
+            if not chevauche:
+                accepted.append(c)
+
+        # Réordonnancement par position dans le fichier
+        accepted.sort(key=lambda c: c["start"])
+        return accepted
+
+    def _generer_proposition(self, category, original):
+        """
+        Génère une proposition de remplacement unique par catégorie.
+
+        Portée : les compteurs sont globaux à tout le scan (self.dict_proposition
+        est initialisé une seule fois dans __init__), la numérotation continue
+        donc d'un fichier à l'autre.
+
+        Format : CATEGORIE_n avec un underscore (ex: SECRET_1, SECRET_2, EMAIL_1).
+
+        Un même élément original d'une même catégorie réutilise la même
+        proposition, afin de garder une substitution cohérente d'un fichier
+        à l'autre (ex: le même email remplacé par EMAIL_1 partout).
+
+        Args:
+            category (str): La catégorie de la détection.
+            original (str): La chaîne originale détectée.
+
+        Returns:
+            str: La proposition (ex: "SECRET_3").
+        """
+        # Réutilisation : même catégorie + même original => même proposition
+        cle = (category, original)
+        if cle in self.dict_proposition:
+            return self.dict_proposition[cle]
+
+        # Sinon, on incrémente le compteur global de la catégorie
+        compteur = self.dict_proposition.get(f"__compteur_{category}", 0) + 1
+        self.dict_proposition[f"__compteur_{category}"] = compteur
+
+        proposition = f"{category}_{compteur}"
+        self.dict_proposition[cle] = proposition
+
+        return proposition
+
+
 
     def _process_single_file(self, file):
         """
