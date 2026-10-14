@@ -52,3 +52,55 @@ export async function download_results() {
   document.body.removeChild(a)
   URL.revokeObjectURL(url)
 }
+
+/**
+ * Lance le scan sur un contenu collé
+ */
+export async function scan_content(content, filename) {
+  const response = await fetch(`${API_BASE_URL}/scan_content`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ content, filename }),
+  })
+  if (!response.ok) {
+    const errorData = await response.json().catch(() => ({}))
+    throw new Error(errorData.detail || 'Échec du scan du contenu')
+  }
+  return response.json()
+}
+
+/**
+ * Soumet le plan validé pour le mode contenu → retourne le texte anonymisé
+ */
+export async function submit_content(content, filename, plan) {
+  const response = await fetch(`${API_BASE_URL}/validation/submit_content`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ content, filename, plan }),
+  })
+  if (!response.ok) {
+    const errorData = await response.json().catch(() => ({}))
+    throw new Error(errorData.detail || 'Échec de la soumission')
+  }
+  return response.json()
+}
+
+/**
+ * Télécharge le plan d'anonymisation validé (.json)
+ */
+export async function download_validated_plan() {
+  const response = await fetch(`${API_BASE_URL}/chargement/validated_plan`)
+  if (!response.ok) {
+    const errorData = await response.json().catch(() => ({}))
+    throw new Error(errorData.detail || 'Échec du téléchargement du plan')
+  }
+  const blob = await response.blob()
+  const url = URL.createObjectURL(blob)
+  const a = document.createElement('a')
+  a.href = url
+  a.download = 'validated_changes_plan.json'
+  document.body.appendChild(a)
+  a.click()
+  document.body.removeChild(a)
+  URL.revokeObjectURL(url)
+}
