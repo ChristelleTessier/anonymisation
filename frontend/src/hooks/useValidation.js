@@ -1,18 +1,20 @@
 import { useState, useCallback } from 'react'
-import { fetch_validation_plan, submit_validated_plan } from '../services/api_validation'
+import { fetch_validation_plan, submit_validated_plan, submit_content} from '../services/api_validation'
 
-export function useValidation(folderPath, onSuccess) {
+export function useValidation(folderPath, onSuccess, mode = 'dossier', content = '', filename = '') {
   const [is_open, set_is_open] = useState(false)
   const [plan, set_plan] = useState([])
   const [current_index, set_current_index] = useState(0)
   const [loading, set_loading] = useState(false)
   const [error, set_error] = useState(null)
+  const [anonymized_result, set_anonymized_result] = useState(null)
 
   // Ouvre la validation (à appeler après le succès de start_anonymization)
   const open_validation = useCallback(async () => {
     set_is_open(true)
     set_loading(true)
     set_error(null)
+    set_anonymized_result(null)
     try {
       const data = await fetch_validation_plan()
       // On initialise les décisions par défaut
@@ -37,6 +39,7 @@ export function useValidation(folderPath, onSuccess) {
   const close_validation = useCallback(() => {
     set_is_open(false)
     set_plan([])
+    set_anonymized_result(null)
   }, [])
 
   // Met à jour la décision à l'échelle du fichier (o / n)
@@ -85,15 +88,26 @@ export function useValidation(folderPath, onSuccess) {
   // Soumission finale
   const submit = useCallback(async () => {
     try {
-      const result = await submit_validated_plan(folderPath, plan)
+      let result
+      if (mode === 'contenu') {
+        result = await submit_content(content, filename, plan)
+      } else {
+        result = await submit_validated_plan(folderPath, plan)
+      }
       close_validation()
+      if (result.anonymized_text) {
+        set_anonymized_result({
+          text: result.anonymized_text,
+          filename: result.filename,
+        })
+      }
       if (onSuccess) onSuccess()
       return result
     } catch (e) {
       set_error(e.message)
       return null
     }
-  }, [folderPath, plan, close_validation, onSuccess])
+  }, [folderPath, plan, close_validation, onSuccess, mode, content, filename])
 
   return {
     is_open,
@@ -101,6 +115,7 @@ export function useValidation(folderPath, onSuccess) {
     current_index,
     loading,
     error,
+    anonymized_result,
     open_validation,
     close_validation,
     update_fichier_decision,

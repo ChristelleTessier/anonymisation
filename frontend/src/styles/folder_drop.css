@@ -84,3 +84,140 @@ BOUTONS CÔTE À CÔTE
 .download_button:not(:disabled):hover {
   background-color: #1b5e20;
 }
+
+/* ==========================================================================
+TOGGLE MODE (Dossier / Contenu)
+========================================================================== */
+.mode_toggle {
+  display: flex;
+  gap: 0;
+  margin: 16px auto;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  overflow: hidden;
+  width: fit-content;
+}
+
+.toggle_btn {
+  padding: 8px 20px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  border: none;
+  background: #f8fafc;
+  color: #64748b;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.toggle_btn.active {
+  background: #2563eb;
+  color: white;
+}
+
+.toggle_btn:not(.active):hover {
+  background: #e2e8f0;
+}
+
+/* ==========================================================================
+ZONE DE SAISIE DU CONTENU
+========================================================================== */
+.content_input_group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 16px 0;
+  align-items: center;
+  width: 100%;
+}
+
+.content_textarea {
+  width: 100%;
+  max-width: 600px;
+  padding: 12px 14px;
+  font-size: 0.9rem;
+  font-family: 'Consolas', 'Monaco', monospace;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  background-color: #ffffff;
+  color: #1e293b;
+  outline: none;
+  resize: vertical;
+  min-height: 150px;
+  box-sizing: border-box;
+}
+
+.content_textarea:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.15);
+}
+
+/* ==========================================================================
+RÉSULTAT (TEXTE ANONYMISÉ)
+========================================================================== */
+.content_result {
+  margin-top: 24px;
+  padding: 16px;
+  border: 1px solid #bbf7d0;
+  border-radius: 8px;
+  background-color: #f0fdf4;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
+}
+
+.content_result_title {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #166534;
+}
+
+.content_result_textarea {
+  width: 100%;
+  max-width: 600px;
+  padding: 12px 14px;
+  font-size: 0.9rem;
+  font-family: 'Consolas', 'Monaco', monospace;
+  border: 1px solid #bbf7d0;
+  border-radius: 6px;
+  background-color: #ffffff;
+  color: #1e293b;
+  resize: vertical;
+  min-height: 150px;
+  box-sizing: border-box;
+}
+
+.content_result_actions {
+  display: flex;
+  gap: 12px;
+}
+
+.btn_copy,
+.btn_download_txt {
+  padding: 8px 16px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.btn_copy {
+  background-color: #2563eb;
+  color: white;
+}
+
+.btn_copy:hover {
+  background-color: #1d4ed8;
+}
+
+.btn_download_txt {
+  background-color: #2e7d32;
+  color: white;
+}
+
+.btn_download_txt:hover {
+  background-color: #1b5e20;
+}
