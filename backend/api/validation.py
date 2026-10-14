@@ -112,7 +112,6 @@ def submit_validated_plan(request: ValidatedPlanRequest, folder_path: str):
 
 class SubmitContentRequest(BaseModel):
     content: str
-    filename: Optional[str] = None
     plan: List[FichierPlan]
 
 @router.post("/submit_content")
@@ -122,7 +121,7 @@ def submit_content(request: SubmitContentRequest):
     Retourne le texte anonymisé.
     """
     content = request.content
-    filename = request.filename or "contenu.txt"
+    filename = "contenu.txt"
 
     # Appliquer les remplacements
     result = content

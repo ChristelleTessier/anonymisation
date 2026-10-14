@@ -15,8 +15,6 @@ function Anonymisation({
   set_mode,
   content,
   set_content,
-  filename,
-  set_filename,
   anonymized_result,
 }) {
   const [downloading, set_downloading] = useState(false)
@@ -46,8 +44,6 @@ function Anonymisation({
 
       {mode === 'contenu' && (
         <ContentInput
-          filename={filename}
-          set_filename={set_filename}
           content={content}
           set_content={set_content}
         />

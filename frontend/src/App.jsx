@@ -14,28 +14,28 @@ function App() {
   const [is_anonymized, set_is_anonymized] = useState(false)
   const [desanonymized_result, set_desanonymized_result] = useState(null)
   const [mode, set_mode] = useState('dossier')  // 'dossier' | 'contenu'
-  const [openSection, setOpenSection] = useState('config')
+  const [openSection, setOpenSection] = useState(null)
   const [content, setContent] = useState('')
-  const [filename, setFilename] = useState('')
+  const [plan_path, set_plan_path] = useState('') 
 
   const { folder_path, set_folder_path, is_processing, handle_anonymize_click } =
     useAnonymization()
 
   const handle_success = useCallback(() => set_is_anonymized(true), [])
 
-  const validation = useValidation(folder_path, handle_success, mode, content, filename)
-
+  const validation = useValidation(folder_path, handle_success, mode, content)
 
   const handle_anonymize = async () => {
     if (mode === 'contenu') {
-      // Mode contenu : scan du texte collé
-      const success = await scan_content(content, filename)
-      if (success) {
+      try {
+        await scan_content(content)
         set_is_anonymized(false)
         validation.open_validation()
+      } catch (err) {
+        alert(`Erreur scan : ${err.message}`)
+        console.error('scan_content failed:', err)
       }
     } else {
-      // Mode dossier : scan du dossier
       const success = await handle_anonymize_click()
       if (success) {
         set_is_anonymized(false)
@@ -49,7 +49,7 @@ function App() {
     if (mode === 'contenu') {
       set_desanonymized_result({
         text: content,
-        filename: filename || 'contenu_desanonymise.txt',
+        filename: 'contenu_desanonymise.txt',
       })
     } else {
       set_desanonymized_result({
@@ -66,7 +66,7 @@ function App() {
   return (
     <div className="page_layout">
       <main className="content_box">
-        <h1 className="main_title">Anonymisation de dossier - d'un contenu</h1>
+        <h1 className="main_title">Anonymisation d'un dossier - d'un contenu</h1>
 
         <CollapsibleSection
           title="Paramètres de configuration"
@@ -96,8 +96,6 @@ function App() {
             set_mode={set_mode}
             content={content}
             set_content={setContent}
-            filename={filename}
-            set_filename={setFilename}
             anonymized_result={validation.anonymized_result}
 
           />
@@ -121,9 +119,9 @@ function App() {
             set_mode={set_mode}
             content={content}
             set_content={setContent}
-            filename={filename}
-            set_filename={setFilename}
             desanonymized_result={desanonymized_result}
+            plan_path={plan_path}        
+            set_plan_path={set_plan_path}
           />
         </CollapsibleSection>
       </main>

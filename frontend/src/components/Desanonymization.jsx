@@ -15,9 +15,9 @@ function Desanonymization({
   set_mode,
   content,
   set_content,
-  filename,
-  set_filename,
   desanonymized_result,
+  plan_path,
+  set_plan_path,
 }) {
   const [downloading, set_downloading] = useState(false)
 
@@ -33,7 +33,7 @@ function Desanonymization({
   }
 
   const can_desanonymize = mode === 'dossier'
-    ? folder_path.trim().length > 0
+    ? folder_path.trim().length > 0 && plan_path.trim().length > 0
     : content.trim().length > 0
 
   return (
@@ -45,13 +45,13 @@ function Desanonymization({
             folder_path={folder_path} 
             set_folder_path={set_folder_path}
             action="désanonymiser"
+            plan_path={plan_path}
+            set_plan_path={set_plan_path}
         />
       )}
 
       {mode === 'contenu' && (
         <ContentInput
-          filename={filename}
-          set_filename={set_filename}
           content={content}
           set_content={set_content}
           action="désanonymiser"

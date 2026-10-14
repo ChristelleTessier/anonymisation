@@ -56,15 +56,18 @@ export async function download_results() {
 /**
  * Lance le scan sur un contenu collé
  */
-export async function scan_content(content, filename) {
+export async function scan_content(content) {
   const response = await fetch(`${API_BASE_URL}/scan_content`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ content, filename }),
+    body: JSON.stringify({ content}),
   })
   if (!response.ok) {
     const errorData = await response.json().catch(() => ({}))
-    throw new Error(errorData.detail || 'Échec du scan du contenu')
+    const detail = typeof errorData.detail === 'string'
+      ? errorData.detail
+      : JSON.stringify(errorData.detail) || 'Échec du scan du contenu'
+    throw new Error(detail)
   }
   return response.json()
 }
@@ -72,15 +75,18 @@ export async function scan_content(content, filename) {
 /**
  * Soumet le plan validé pour le mode contenu → retourne le texte anonymisé
  */
-export async function submit_content(content, filename, plan) {
+export async function submit_content(content, plan) {
   const response = await fetch(`${API_BASE_URL}/validation/submit_content`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ content, filename, plan }),
+    body: JSON.stringify({ content, plan }),
   })
   if (!response.ok) {
     const errorData = await response.json().catch(() => ({}))
-    throw new Error(errorData.detail || 'Échec de la soumission')
+    const detail = typeof errorData.detail === 'string'
+      ? errorData.detail
+      : JSON.stringify(errorData.detail) || 'Échec de la soumission'
+    throw new Error(detail)
   }
   return response.json()
 }

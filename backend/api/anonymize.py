@@ -31,8 +31,7 @@ async def start_anonymization(request: AnonymizeRequest):
 
 class ScanContentRequest(BaseModel):
     content: str
-    filename: Optional[str] = None
-
+   
 @router.post("/scan_content")
 async def scan_content(request: ScanContentRequest):
     """
@@ -40,7 +39,7 @@ async def scan_content(request: ScanContentRequest):
     Génère un plan d'anonymisation (même structure qu'un scan de dossier).
     """
     content = request.content
-    filename = request.filename or "contenu.txt"
+    filename = "contenu.txt"
 
     # Écrire temporairement dans un fichier pour réutiliser l'analyseur
     temp_file = Path("utils/temp_content.txt")

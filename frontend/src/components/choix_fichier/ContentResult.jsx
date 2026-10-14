@@ -1,3 +1,5 @@
+import { download_validated_plan } from '../../services/api_validation' //../../styles/api_validation'
+
 function ContentResult({ anonymized_result, title = "✅ Texte anonymisé" }) {
   if (!anonymized_result) return null
 
@@ -30,6 +32,12 @@ function ContentResult({ anonymized_result, title = "✅ Texte anonymisé" }) {
           }}
         >
           ⬇️ Télécharger (.txt)
+        </button>
+        <button
+          className="btn_download_txt"
+          onClick={() => download_validated_plan().catch(err => alert(`Erreur téléchargement plan : ${err.message}`))}
+        >
+          📄 Télécharger le plan validé (.json)
         </button>
       </div>
     </div>

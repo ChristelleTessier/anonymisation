@@ -1,7 +1,7 @@
 import { useState, useCallback } from 'react'
 import { fetch_validation_plan, submit_validated_plan, submit_content} from '../services/api_validation'
 
-export function useValidation(folderPath, onSuccess, mode = 'dossier', content = '', filename = '') {
+export function useValidation(folderPath, onSuccess, mode = 'dossier', content = '') {
   const [is_open, set_is_open] = useState(false)
   const [plan, set_plan] = useState([])
   const [current_index, set_current_index] = useState(0)
@@ -90,7 +90,7 @@ export function useValidation(folderPath, onSuccess, mode = 'dossier', content =
     try {
       let result
       if (mode === 'contenu') {
-        result = await submit_content(content, filename, plan)
+        result = await submit_content(content, plan)
       } else {
         result = await submit_validated_plan(folderPath, plan)
       }
@@ -107,7 +107,7 @@ export function useValidation(folderPath, onSuccess, mode = 'dossier', content =
       set_error(e.message)
       return null
     }
-  }, [folderPath, plan, close_validation, onSuccess, mode, content, filename])
+  }, [folderPath, plan, close_validation, onSuccess, mode, content])
 
   return {
     is_open,
