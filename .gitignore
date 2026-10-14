@@ -1,0 +1,6 @@
+# Ignorer le dossier anonymized et tout son contenu
+backend/anonymized/
+
+# Ignorer tous les dossiers __pycache__ et fichiers compilés Python
+**/__pycache__/
+*.pyc

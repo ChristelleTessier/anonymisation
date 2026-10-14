@@ -9,6 +9,7 @@ from api.config_specs import router as config_specs_router
 
 from api.anonymize import router as anonymize_router
 from api.validation import router as validation_router
+from api.export_plan import router as chargement_router
 
 
 app = FastAPI(title="Anonymisation API")
@@ -32,3 +33,4 @@ app.include_router(config_specs_router)
 
 app.include_router(anonymize_router)
 app.include_router(validation_router)
+app.include_router(chargement_router)
