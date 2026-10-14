@@ -1,0 +1,35 @@
+{
+  "requete": {
+    "id": "REQ-2026-10412",
+    "date_reception": "DATE_5",
+    "date_iso": "DATE_12",
+    "service_emetteur": "ORGANISATION_1",
+    "contact": {
+      "nom": "Christelle Tessier",
+      "email": "EMAIL_1",
+      "telephone": "TELEPHONE_2",
+      "telephone_international": "TELEPHONE_3",
+      "nir": "NIR_2"
+    }
+  },
+  "authentification": {
+    "api_key": "sk-live-AbCdEf123456789",
+    "access_token": "Bearer SECRET_7",
+    "db_connection": "jdbc:oracle:thin:@INFOS_RESEAU_2:1521:RECN",
+    "db_password": "IDEP_2!2026"
+  },
+  "reseau": {
+    "ip_serveur": "IP_1",
+    "ip_passerelle": "IP_4",
+    "hostname_interne": "URL_INSEE_4",
+    "bucket_s3": "INFOS_RESEAU_1"
+  },
+  "sortie": {
+    "url_portail": "URL_INSEE_5",
+    "url_api": "URL_INSEE_3",
+    "rapport_chemin": "C:\\Users\\ctessier\\Documents\\rapport.pdf",
+    "idep_agent": "IDEP_1",
+    "idep_valideur": "mmart28",
+    "date_signature": "DATE_6"
+  }
+}

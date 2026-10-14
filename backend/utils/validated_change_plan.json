@@ -5,7 +5,7 @@
       {
         "category": "DATE",
         "original": "2026-10-1",
-        "proposition": "datedate"
+        "proposition": "DATE_1"
       },
       {
         "category": "URL_INSEE",

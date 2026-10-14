@@ -4,6 +4,8 @@ from fastapi import APIRouter, HTTPException
 from pydantic import BaseModel
 from typing import Optional, List
 
+from scripts.Transformer import Transformer
+
 router = APIRouter(prefix="/api/validation", tags=["validation"])
 
 # ─── Modèles Pydantic ───────────────────────────────────────────
@@ -17,7 +19,7 @@ class ModifInterne(BaseModel):
 
 class FichierPlan(BaseModel):
     chemin_fichier: str
-    chemin_enregistrement: Optional[str] = None  # ← MODIF 1 : optionnel
+    chemin_enregistrement: Optional[str] = None
     modif_nom: Optional[str] = None
     modif_interne: List[ModifInterne] = []
     decision_fichier: Optional[str] = "o"  # "o" | "n"
@@ -80,12 +82,32 @@ def submit_validated_plan(request: ValidatedPlanRequest, folder_path: str):
             })
 
     # ─── Sauvegarde ───────────────────────────────────────────
-    output_path = Path("utils/validated_change_plan.json")  # ← MODIF 2 : Path + nouveau nom
+    output_path = Path("utils/validated_change_plan.json") 
     output_path.parent.mkdir(parents=True, exist_ok=True)
 
     try:
         with open(output_path, "w", encoding="utf-8") as f:
             json.dump(validated_plan, f, indent=2, ensure_ascii=False)
-        return {"status": "success", "count": len(validated_plan), "path": str(output_path)}
+        # return {"status": "success", "count": len(validated_plan), "path": str(output_path)}
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
+
+    # ─── Lancer l'anonymisation ───────────────────────────────
+    try:
+        transformer = Transformer(str(output_path), folder_path)
+        transformer.run(False)  # False = anonymisation (original → proposition)
+    except Exception as e:
+        raise HTTPException(
+            status_code=500,
+            detail=f"Plan sauvegardé mais anonymisation échouée: {e}"
+        )
+
+    return {
+        "status": "success",
+        "count": len(validated_plan),
+        "plan_path": str(output_path),
+        "output_dir": str(Path("anonymized")),
+    }
+
+
+    

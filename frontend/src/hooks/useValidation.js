@@ -87,6 +87,11 @@ export function useValidation(folderPath) {
     try {
       const result = await submit_validated_plan(folderPath, plan)
       close_validation()
+      alert(
+      `✅ Anonymisation terminée !\n` +
+      `${result.count} fichier(s) traité(s)\n` +
+      `Résultats dans : backend/${result.output_dir}`
+    )
       return result
     } catch (e) {
       set_error(e.message)
