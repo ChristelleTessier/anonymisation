@@ -1,7 +1,9 @@
 import { useState } from 'react'
+import { download_results } from '../services/api_validation'
 
-function FolderChoice({ folder_path, set_folder_path, on_anonymize, is_processing }) {
+function FolderChoice({ folder_path, set_folder_path, on_anonymize, is_processing, is_anonymized }) {
   const [is_dragging, set_is_dragging] = useState(false)
+  const [downloading, set_downloading] = useState(false)
 
   const handle_drop = (e) => {
     e.preventDefault()
@@ -31,6 +33,17 @@ function FolderChoice({ folder_path, set_folder_path, on_anonymize, is_processin
     set_is_dragging(false)
   }
 
+  const handle_download = async () => {  // ← NOUVEAU
+    set_downloading(true)
+    try {
+      await download_results()
+    } catch (e) {
+      alert(`Erreur : ${e.message}`)
+    } finally {
+      set_downloading(false)
+    }
+  }
+
   return (
     <section className="folder_section card_section">
 
@@ -53,13 +66,23 @@ function FolderChoice({ folder_path, set_folder_path, on_anonymize, is_processin
         />
       </div>
 
-      <button
-        className="anonymize_button"
-        onClick={on_anonymize}
-        disabled={!folder_path.trim() || is_processing}
-      >
-        {is_processing ? 'Anonymisation...' : 'Anonymiser'}
-      </button>
+      <div className="button_group">  
+        <button
+          className="anonymize_button"
+          onClick={on_anonymize}
+          disabled={!folder_path.trim() || is_processing}
+        >
+          {is_processing ? 'Anonymisation...' : 'Anonymiser'}
+        </button>
+
+        <button 
+          className="anonymize_button download_button"
+          onClick={handle_download}
+          disabled={!is_anonymized || downloading}
+        >
+          {downloading ? 'Téléchargement...' : 'Charger'}
+        </button>
+      </div>
     </section>
   )
 }

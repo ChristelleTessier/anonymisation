@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useCallback } from 'react'
 import ConfigSetting from './components/ConfigSetting'
 import FolderChoice from './components/FolderChoice'
 import ValidationModal from './components/validation/ValidationModal'
@@ -8,15 +8,20 @@ import './App.css'
 
 function App() {
   const [variable_list, set_variable_list] = useState([])
+  const [is_anonymized, set_is_anonymized] = useState(false)
 
   const { folder_path, set_folder_path, is_processing, handle_anonymize_click } =
     useAnonymization()
 
-  const validation = useValidation(folder_path)
+  const handle_success = useCallback(() => set_is_anonymized(true), [])
+
+  const validation = useValidation(folder_path, handle_success)
+
 
   const handle_anonymize = async () => {
     const success = await handle_anonymize_click()
     if (success) {
+      set_is_anonymized(false)
       validation.open_validation()
     }
   }
@@ -38,6 +43,7 @@ function App() {
           set_folder_path={set_folder_path}
           on_anonymize={handle_anonymize}
           is_processing={is_processing}
+          is_anonymized={is_anonymized}
         />
       </main>
 

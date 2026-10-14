@@ -32,3 +32,23 @@ export async function submit_validated_plan(folderPath, plan) {
   }
   return response.json()
 }
+
+/**
+ * Télécharge le ZIP (plan validé + fichiers anonymisés)
+ */
+export async function download_results() {
+  const response = await fetch(`${API_BASE_URL}/chargement/download`)
+  if (!response.ok) {
+    const errorData = await response.json().catch(() => ({}))
+    throw new Error(errorData.detail || 'Échec du téléchargement')
+  }
+  const blob = await response.blob()
+  const url = URL.createObjectURL(blob)
+  const a = document.createElement('a')
+  a.href = url
+  a.download = 'anonymized_results.zip'
+  document.body.appendChild(a)
+  a.click()
+  document.body.removeChild(a)
+  URL.revokeObjectURL(url)
+}

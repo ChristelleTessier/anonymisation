@@ -90,3 +90,29 @@
   cursor: not-allowed;
   opacity: 0.7;
 }
+
+
+/* Boutons côte à côte */
+.button_group {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin-top: 16px;
+}
+
+/* Bouton "Charger" — désactivé */
+.download_button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* Bouton "Charger" — actif */
+.download_button:not(:disabled) {
+  background-color: #2e7d32;
+  color: white;
+  border: none;
+}
+
+.download_button:not(:disabled):hover {
+  background-color: #1b5e20;
+}

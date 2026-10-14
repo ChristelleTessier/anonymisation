@@ -1,7 +1,7 @@
 import { useState, useCallback } from 'react'
 import { fetch_validation_plan, submit_validated_plan } from '../services/api_validation'
 
-export function useValidation(folderPath) {
+export function useValidation(folderPath, onSuccess) {
   const [is_open, set_is_open] = useState(false)
   const [plan, set_plan] = useState([])
   const [current_index, set_current_index] = useState(0)
@@ -87,12 +87,13 @@ export function useValidation(folderPath) {
     try {
       const result = await submit_validated_plan(folderPath, plan)
       close_validation()
+      if (onSuccess) onSuccess()
       return result
     } catch (e) {
       set_error(e.message)
       return null
     }
-  }, [folderPath, plan, close_validation])
+  }, [folderPath, plan, close_validation, onSuccess])
 
   return {
     is_open,
