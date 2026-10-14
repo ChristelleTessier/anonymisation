@@ -6,7 +6,7 @@ CHAMP DE SAISIE DE CHEMIN / DOSSIER
   flex-direction: column;
   gap: 8px;
   margin: 16px 0;
-  align-items: center;
+  align-items: stretch;
 }
 
 .folder_input_label {
@@ -16,7 +16,6 @@ CHAMP DE SAISIE DE CHEMIN / DOSSIER
 
 .folder_input {
   width: 100%;
-  max-width: 440px;
   padding: 10px 14px;
   font-size: 0.95rem;
   border: 1px solid #cbd5e1;
@@ -126,13 +125,12 @@ ZONE DE SAISIE DU CONTENU
   flex-direction: column;
   gap: 8px;
   margin: 16px 0;
-  align-items: center;
+  align-items: stretch;
   width: 100%;
 }
 
 .content_textarea {
   width: 100%;
-  max-width: 600px;
   padding: 12px 14px;
   font-size: 0.9rem;
   font-family: 'Consolas', 'Monaco', monospace;
@@ -163,8 +161,7 @@ RÉSULTAT (TEXTE ANONYMISÉ)
   display: flex;
   flex-direction: column;
   gap: 12px;
-  align-items: center;
-  max-width: 600px;
+  align-items: stretch;
   margin-left: auto;
   margin-right: auto;
   width: 100%;
@@ -224,4 +221,43 @@ RÉSULTAT (TEXTE ANONYMISÉ)
 
 .btn_download_txt:hover {
   background-color: #1b5e20;
+}
+
+/* ==========================================================================
+SECTION COLLAPSIBLE (ACCORDEON)
+========================================================================== */
+.collapsible_section {
+  margin-top: 0;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.collapsible_title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0;
+  padding: 16px 20px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #1e293b;
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 0.2s ease;
+}
+
+.collapsible_title:hover {
+  background-color: #f1f5f9;
+}
+
+.collapsible_arrow {
+  font-size: 0.8rem;
+  color: #64748b;
+  transition: transform 0.2s ease;
+}
+
+.collapsible_body {
+  padding: 0 20px 20px;
+  width: 100%;
+  box-sizing: border-box;
 }

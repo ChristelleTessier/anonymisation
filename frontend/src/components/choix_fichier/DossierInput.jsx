@@ -1,7 +1,9 @@
-function DossierInput({ folder_path, set_folder_path }) {
+function DossierInput({ folder_path, set_folder_path, action = "anonymiser" }) {
   return (
     <div className="folder_input_group">
-      <label className="folder_input_label">Chemin du dossier à anonymiser :</label>
+      <label className="folder_input_label">
+        Chemin du dossier à {action} :
+      </label>
       <input
         type="text"
         className="folder_input"

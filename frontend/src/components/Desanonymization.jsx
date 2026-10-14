@@ -5,19 +5,19 @@ import DossierInput from './choix_fichier/DossierInput'
 import ContentInput from './choix_fichier/ContentInput'
 import ContentResult from './choix_fichier/ContentResult'
 
-function FolderChoice({
+function Desanonymization({
   folder_path,
   set_folder_path,
-  on_anonymize,
+  on_desanonymize,
   is_processing,
-  is_anonymized,
+  is_desanonymized,
   mode,
   set_mode,
   content,
   set_content,
   filename,
   set_filename,
-  anonymized_result,
+  desanonymized_result,
 }) {
   const [downloading, set_downloading] = useState(false)
 
@@ -32,18 +32,20 @@ function FolderChoice({
     }
   }
 
-  const can_anonymize = mode === 'dossier'
+  const can_desanonymize = mode === 'dossier'
     ? folder_path.trim().length > 0
     : content.trim().length > 0
 
   return (
-    <section className="folder_section card_section">
-      <h2 className="folder_section_title">Anonymisation du dossier</h2>
-
+    <div>
       <ModeToggle mode={mode} set_mode={set_mode} />
 
       {mode === 'dossier' && (
-        <DossierInput folder_path={folder_path} set_folder_path={set_folder_path} />
+        <DossierInput 
+            folder_path={folder_path} 
+            set_folder_path={set_folder_path}
+            action="désanonymiser"
+        />
       )}
 
       {mode === 'contenu' && (
@@ -52,32 +54,35 @@ function FolderChoice({
           set_filename={set_filename}
           content={content}
           set_content={set_content}
+          action="désanonymiser"
         />
       )}
 
       <div className="button_group">
         <button
           className="anonymize_button"
-          onClick={on_anonymize}
-          disabled={!can_anonymize || is_processing}
+          onClick={on_desanonymize}
+          disabled={!can_desanonymize || is_processing}
         >
-          {is_processing ? 'Anonymisation...' : 'Anonymiser'}
+          {is_processing ? 'Désanonymisation...' : 'Désanonymiser'}
         </button>
 
-        {mode === 'dossier' && (
-          <button
-            className="anonymize_button download_button"
-            onClick={handle_download}
-            disabled={!is_anonymized || downloading}
-          >
-            {downloading ? 'Téléchargement...' : 'Charger'}
-          </button>
-        )}
+        {/* Visible dans les 2 modes */}
+        <button
+          className="anonymize_button download_button"
+          onClick={handle_download}
+          disabled={!is_desanonymized || downloading}
+        >
+          {downloading ? 'Téléchargement...' : 'Charger'}
+        </button>
       </div>
 
-      <ContentResult anonymized_result={anonymized_result} />
-    </section>
+      <ContentResult
+        anonymized_result={desanonymized_result}
+        title="✅ Texte désanonymisé"
+      />
+    </div>
   )
 }
 
-export default FolderChoice
+export default Desanonymization

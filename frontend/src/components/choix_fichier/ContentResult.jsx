@@ -1,11 +1,9 @@
-import { download_validated_plan } from '../../services/api_validation'
-
-function ContentResult({ anonymized_result }) {
+function ContentResult({ anonymized_result, title = "✅ Texte anonymisé" }) {
   if (!anonymized_result) return null
 
   return (
     <div className="content_result">
-      <h3 className="content_result_title">✅ Texte anonymisé</h3>
+      <h3 className="content_result_title">{title}</h3>
       <textarea
         className="content_result_textarea"
         readOnly
@@ -26,21 +24,13 @@ function ContentResult({ anonymized_result }) {
             const url = URL.createObjectURL(blob)
             const a = document.createElement('a')
             a.href = url
-            a.download = anonymized_result.filename || 'contenu_anonymise.txt'
+            a.download = anonymized_result.filename || 'contenu.txt'
             a.click()
             URL.revokeObjectURL(url)
           }}
         >
           ⬇️ Télécharger (.txt)
         </button>
-
-                <button
-          className="btn_download_txt"
-          onClick={() => download_validated_plan().catch(e => alert(e.message))}
-        >
-          📄 Plan (.json)
-        </button>
-
       </div>
     </div>
   )

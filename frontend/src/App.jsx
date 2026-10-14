@@ -1,6 +1,8 @@
 import { useState, useCallback } from 'react'
 import ConfigSetting from './components/ConfigSetting'
-import FolderChoice from './components/FolderChoice'
+import Anonymisation from './components/Anonymisation'
+import Desanonymization from './components/Desanonymization'
+import CollapsibleSection from './components/common/CollapsibleSection'
 import ValidationModal from './components/validation/ValidationModal'
 import { useAnonymization } from './hooks/useAnonymization'
 import { useValidation } from './hooks/useValidation'
@@ -10,7 +12,9 @@ import './App.css'
 function App() {
   const [variable_list, set_variable_list] = useState([])
   const [is_anonymized, set_is_anonymized] = useState(false)
+  const [desanonymized_result, set_desanonymized_result] = useState(null)
   const [mode, set_mode] = useState('dossier')  // 'dossier' | 'contenu'
+  const [openSection, setOpenSection] = useState('config')
   const [content, setContent] = useState('')
   const [filename, setFilename] = useState('')
 
@@ -40,33 +44,88 @@ function App() {
     }
   }
 
+  const handle_desanonymize = async () => {
+    // Simulation frontend : on affiche le contenu collé comme "résultat"
+    if (mode === 'contenu') {
+      set_desanonymized_result({
+        text: content,
+        filename: filename || 'contenu_desanonymise.txt',
+      })
+    } else {
+      set_desanonymized_result({
+        text: 'Désanonymisation du dossier terminée (simulation).',
+        filename: 'resultat.txt',
+      })
+    }
+  }
+
+  const toggleSection = (id) => {
+    setOpenSection((prev) => (prev === id ? null : id))
+  }
+
   return (
     <div className="page_layout">
       <main className="content_box">
-        <h1 className="main_title">Anonymisation de dossier</h1>
+        <h1 className="main_title">Anonymisation de dossier - d'un contenu</h1>
 
-        <ConfigSetting
-          variable_list={variable_list}
-          set_variable_list={set_variable_list}
-        />
+        <CollapsibleSection
+          title="Paramètres de configuration"
+          isOpen={openSection === 'config'}
+          onToggle={() => toggleSection('config')}
+        >
+          <ConfigSetting
+            variable_list={variable_list}
+            set_variable_list={set_variable_list}
+          />
+        </CollapsibleSection>
 
         <hr className="section_divider" />
 
-        <FolderChoice
-          folder_path={folder_path}
-          set_folder_path={set_folder_path}
-          on_anonymize={handle_anonymize}
-          is_processing={is_processing}
-          is_anonymized={is_anonymized}
-          mode={mode}
-          set_mode={set_mode}
-          content={content}
-          set_content={setContent}
-          filename={filename}
-          set_filename={setFilename}
-          anonymized_result={validation.anonymized_result}
+        <CollapsibleSection
+          title="Anonymisation"
+          isOpen={openSection === 'anonymisation'}
+          onToggle={() => toggleSection('anonymisation')}
+        >
+          <Anonymisation
+            folder_path={folder_path}
+            set_folder_path={set_folder_path}
+            on_anonymize={handle_anonymize}
+            is_processing={is_processing}
+            is_anonymized={is_anonymized}
+            mode={mode}
+            set_mode={set_mode}
+            content={content}
+            set_content={setContent}
+            filename={filename}
+            set_filename={setFilename}
+            anonymized_result={validation.anonymized_result}
 
-        />
+          />
+        </CollapsibleSection>
+
+      <hr className="section_divider" />
+
+
+      <CollapsibleSection
+        title="Désanonymisation"
+        isOpen={openSection === 'desanonymisation'}
+        onToggle={() => toggleSection('desanonymisation')}
+      >
+        <Desanonymization
+            folder_path={folder_path}
+            set_folder_path={set_folder_path}
+            on_desanonymize={handle_desanonymize}
+            is_processing={is_processing}
+            is_desanonymized={desanonymized_result !== null}
+            mode={mode}
+            set_mode={set_mode}
+            content={content}
+            set_content={setContent}
+            filename={filename}
+            set_filename={setFilename}
+            desanonymized_result={desanonymized_result}
+          />
+        </CollapsibleSection>
       </main>
 
       <ValidationModal validation={validation} />
