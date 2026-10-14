@@ -1,4 +1,4 @@
-import { download_validated_plan } from '../../services/api_validation' //../../styles/api_validation'
+import { download_validated_plan } from '../../services/api_validation'
 
 function ContentResult({ anonymized_result, title = "✅ Texte anonymisé" }) {
   if (!anonymized_result) return null

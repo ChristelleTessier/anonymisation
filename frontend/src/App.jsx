@@ -21,7 +21,9 @@ function App() {
   const { folder_path, set_folder_path, is_processing, handle_anonymize_click } =
     useAnonymization()
 
-  const handle_success = useCallback(() => set_is_anonymized(true), [])
+  const handle_success = useCallback(() => {
+    set_is_anonymized(true)
+  }, [])
 
   const validation = useValidation(folder_path, handle_success, mode, content)
 
