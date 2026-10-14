@@ -64,13 +64,15 @@ function FolderChoice({
           {is_processing ? 'Anonymisation...' : 'Anonymiser'}
         </button>
 
-        <button
-          className="anonymize_button download_button"
-          onClick={handle_download}
-          disabled={!is_anonymized || downloading}
-        >
-          {downloading ? 'Téléchargement...' : 'Charger'}
-        </button>
+        {mode === 'dossier' && (
+          <button
+            className="anonymize_button download_button"
+            onClick={handle_download}
+            disabled={!is_anonymized || downloading}
+          >
+            {downloading ? 'Téléchargement...' : 'Charger'}
+          </button>
+        )}
       </div>
 
       <ContentResult anonymized_result={anonymized_result} />

@@ -2,7 +2,7 @@ import zipfile
 import io
 from pathlib import Path
 from fastapi import APIRouter, HTTPException
-from fastapi.responses import StreamingResponse
+from fastapi.responses import StreamingResponse, FileResponse
 
 router = APIRouter(prefix="/api/chargement", tags=["chargement"])
 
@@ -13,7 +13,7 @@ def download_results():
     Zipe le dossier anonymized/ + le plan validé et renvoie le fichier.
     """
     anonymized_dir = Path("anonymized")
-    plan_file = Path("utils/validated_change_plan.json")
+    plan_file = Path("utils/validated_changes_plan.json")
 
     if not anonymized_dir.exists():
         raise HTTPException(status_code=404, detail="Dossier anonymized/ introuvable.")
@@ -23,7 +23,7 @@ def download_results():
     buffer = io.BytesIO()
     with zipfile.ZipFile(buffer, "w", zipfile.ZIP_DEFLATED) as zipf:
         # Ajouter le plan validé
-        zipf.write(plan_file, "validated_change_plan.json")
+        zipf.write(plan_file, "validated_changes_plan.json")
         # Ajouter tous les fichiers anonymisés
         for f in anonymized_dir.rglob("*"):
             if f.is_file():
@@ -36,3 +36,16 @@ def download_results():
         media_type="application/zip",
         headers={"Content-Disposition": "attachment; filename=anonymized_results.zip"},
     )
+
+@router.get("/validated_plan")
+def get_validated_plan():
+    plan_file = Path("utils/validated_changes_plan.json")
+    if not plan_file.exists():
+        raise HTTPException(status_code=404, detail="Plan validé introuvable.")
+    return FileResponse(
+        path=str(plan_file),
+        filename="validated_changes_plan.json",
+        media_type="application/json",
+    )
+
+

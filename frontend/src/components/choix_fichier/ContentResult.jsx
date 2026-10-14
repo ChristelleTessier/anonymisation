@@ -1,3 +1,5 @@
+import { download_validated_plan } from '../../services/api_validation'
+
 function ContentResult({ anonymized_result }) {
   if (!anonymized_result) return null
 
@@ -31,6 +33,14 @@ function ContentResult({ anonymized_result }) {
         >
           ⬇️ Télécharger (.txt)
         </button>
+
+                <button
+          className="btn_download_txt"
+          onClick={() => download_validated_plan().catch(e => alert(e.message))}
+        >
+          📄 Plan (.json)
+        </button>
+
       </div>
     </div>
   )

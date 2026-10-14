@@ -82,7 +82,7 @@ def submit_validated_plan(request: ValidatedPlanRequest, folder_path: str):
             })
 
     # ─── Sauvegarde ───────────────────────────────────────────
-    output_path = Path("utils/validated_change_plan.json") 
+    output_path = Path("utils/validated_changes_plan.json") 
     output_path.parent.mkdir(parents=True, exist_ok=True)
 
     try:
@@ -143,7 +143,7 @@ def submit_content(request: SubmitContentRequest):
     output_path.write_text(result, encoding="utf-8")
 
     # Sauvegarder le plan validé
-    plan_file = Path("utils/validated_change_plan.json")
+    plan_file = Path("utils/validated_changes_plan.json")
     plan_file.parent.mkdir(parents=True, exist_ok=True)
 
     validated_plan = []
