@@ -26,7 +26,7 @@ function ValidationPanel({
       {/* En-tête */}
       <div className="validation_header">
         <div>
-          <h3 className="validation_title">Validation du plan d'anonymisation</h3>
+          <h3 className="validation_title"></h3>
           <p className="validation_subtitle">Vérifiez chaque détection avant application</p>
         </div>
         <div className="validation_stats">
