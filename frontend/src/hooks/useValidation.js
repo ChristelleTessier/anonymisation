@@ -14,7 +14,7 @@ export function useValidation(folderPath) {
     set_loading(true)
     set_error(null)
     try {
-      const data = await fetch_validation_plan(folderPath)
+      const data = await fetch_validation_plan()
       // On initialise les décisions par défaut
       const initialized = data.plan.map((f) => ({
         ...f,
@@ -87,6 +87,11 @@ export function useValidation(folderPath) {
     try {
       const result = await submit_validated_plan(folderPath, plan)
       close_validation()
+      alert(
+      `✅ Anonymisation terminée !\n` +
+      `${result.count} fichier(s) traité(s)\n` +
+      `Résultats dans : backend/${result.output_dir}`
+    )
       return result
     } catch (e) {
       set_error(e.message)

@@ -17,7 +17,7 @@ function ValidationPanel({
   if (plan.length === 0) return <div className="validation_empty">Aucun fichier à valider.</div>
 
   const current = plan[current_index]
-  const fileName = (current.chemin_fichier || '').split(/[\\/]/).pop()
+  //const fileName = (current.chemin_fichier || '').split(/[\\/]/).pop()
   const nbAnonymiser = plan.filter((f) => f.decision_fichier === 'o').length
   const nbPasser = plan.length - nbAnonymiser
 
@@ -83,8 +83,11 @@ function ValidationPanel({
         <div className="file_decision_buttons">
           <button
             className={`btn_file ${current.decision_fichier === 'o' ? 'active_ok' : ''}`}
-            onClick={() => update_fichier_decision(current_index, 'o')}
-          >✓ Anonymiser</button>
+            onClick={() => {
+              update_fichier_decision(current_index, 'o')
+              if (current_index < plan.length - 1) go_next()
+            }}
+          >✓ Valider le plan pour le fichier</button>
           <button
             className={`btn_file ${current.decision_fichier === 'n' ? 'active_skip' : ''}`}
             onClick={() => update_fichier_decision(current_index, 'n')}

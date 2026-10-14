@@ -4,268 +4,284 @@
         "modif_nom": null,
         "modif_interne": [
             {
-                "category": "SECRET",
-                "original": "password: \"Adm1n!Rec2026\"",
-                "start": 783,
-                "end": 808
-            },
-            {
-                "category": "SECRET",
-                "original": "eyJhbGciOiJIUzI1NiJ9.eyJ1aWQiOiJhZ2VudC0wMDIifQ.mB92K27uhbUJU1p1r_wW1gFWFOEjXk",
-                "start": 858,
-                "end": 936
-            },
-            {
-                "category": "DB_CONNECTION",
-                "original": "jdbc:postgresql://db-prod-01.insee.local:5432/recensement",
-                "start": 400,
-                "end": 457
-            },
-            {
-                "category": "URL_API",
-                "original": "http://ws-recense.insee.fr",
-                "start": 53,
-                "end": 79
-            },
-            {
-                "category": "URL_API",
-                "original": "https://api.insee.fr/metadonnees/V1/info",
-                "start": 502,
-                "end": 542
+                "category": "DATE",
+                "original": "2026-10-1",
+                "priorite": 4,
+                "start": 0,
+                "end": 9,
+                "proposition": "DATE_1"
             },
             {
                 "category": "URL_INSEE",
                 "original": "http://ws-recense.insee.fr:8080",
+                "priorite": 2,
                 "start": 53,
-                "end": 84
+                "end": 84,
+                "proposition": "URL_INSEE_1"
             },
             {
-                "category": "URL_INSEE",
-                "original": "db-prod-01.insee.local:5432/recensement",
-                "start": 418,
-                "end": 457
-            },
-            {
-                "category": "URL_INSEE",
-                "original": "ldap.insee.corp",
-                "start": 1252,
-                "end": 1267
-            },
-            {
-                "category": "EMAIL",
-                "original": "christelle.tessier@insee.fr",
-                "start": 295,
-                "end": 322
-            },
-            {
-                "category": "EMAIL",
-                "original": "agent.lyon@insee.fr",
-                "start": 707,
-                "end": 726
-            },
-            {
-                "category": "NIR",
-                "original": "1 89 04 59 112 034",
-                "start": 598,
-                "end": 616
-            },
-            {
-                "category": "TELEPHONE",
-                "original": "01 45 68 90 12",
-                "start": 683,
-                "end": 697
+                "category": "DATE",
+                "original": "2026-10-1",
+                "priorite": 4,
+                "start": 85,
+                "end": 94,
+                "proposition": "DATE_1"
             },
             {
                 "category": "IP",
                 "original": "10.45.128.203",
+                "priorite": 4,
                 "start": 155,
-                "end": 168
-            },
-            {
-                "category": "IP",
-                "original": "172.16.0.15",
-                "start": 242,
-                "end": 253
-            },
-            {
-                "category": "IP",
-                "original": "192.168.10.7",
-                "start": 1286,
-                "end": 1298
+                "end": 168,
+                "proposition": "IP_1"
             },
             {
                 "category": "DATE",
                 "original": "2026-10-1",
-                "start": 0,
-                "end": 9
-            },
-            {
-                "category": "DATE",
-                "original": "2026-10-1",
-                "start": 85,
-                "end": 94
-            },
-            {
-                "category": "DATE",
-                "original": "2026-10-1",
+                "priorite": 4,
                 "start": 169,
-                "end": 178
-            },
-            {
-                "category": "DATE",
-                "original": "2026-10-1",
-                "start": 254,
-                "end": 263
-            },
-            {
-                "category": "DATE",
-                "original": "03/10/2026",
-                "start": 345,
-                "end": 355
-            },
-            {
-                "category": "DATE",
-                "original": "2026-10-1",
-                "start": 356,
-                "end": 365
-            },
-            {
-                "category": "DATE",
-                "original": "2026-10-1",
-                "start": 458,
-                "end": 467
-            },
-            {
-                "category": "DATE",
-                "original": "2026-10-1",
-                "start": 543,
-                "end": 552
-            },
-            {
-                "category": "DATE",
-                "original": "2026-10-1",
-                "start": 633,
-                "end": 642
-            },
-            {
-                "category": "DATE",
-                "original": "2026-10-1",
-                "start": 727,
-                "end": 736
-            },
-            {
-                "category": "DATE",
-                "original": "2026-10-1",
-                "start": 809,
-                "end": 818
-            },
-            {
-                "category": "DATE",
-                "original": "2026-10-1",
-                "start": 937,
-                "end": 946
-            },
-            {
-                "category": "DATE",
-                "original": "2026-10-1",
-                "start": 1020,
-                "end": 1029
-            },
-            {
-                "category": "DATE",
-                "original": "2026-10-1",
-                "start": 1108,
-                "end": 1117
-            },
-            {
-                "category": "DATE",
-                "original": "2026-09-1",
-                "start": 1196,
-                "end": 1205
-            },
-            {
-                "category": "DATE",
-                "original": "2026-10-1",
-                "start": 1207,
-                "end": 1216
-            },
-            {
-                "category": "DATE",
-                "original": "2026-10-1",
-                "start": 1299,
-                "end": 1308
-            },
-            {
-                "category": "DATE",
-                "original": "1er septembre 2026",
-                "start": 1157,
-                "end": 1175
+                "end": 178,
+                "proposition": "DATE_1"
             },
             {
                 "category": "IDEP",
                 "original": "AB3Z9K",
+                "priorite": 4,
                 "start": 224,
-                "end": 230
+                "end": 230,
+                "proposition": "IDEP_1"
             },
             {
-                "category": "ORGANISATION",
-                "original": "insee",
-                "start": 71,
-                "end": 76
+                "category": "IP",
+                "original": "172.16.0.15",
+                "priorite": 4,
+                "start": 242,
+                "end": 253,
+                "proposition": "IP_2"
             },
             {
-                "category": "ORGANISATION",
-                "original": "insee",
-                "start": 314,
-                "end": 319
+                "category": "DATE",
+                "original": "2026-10-1",
+                "priorite": 4,
+                "start": 254,
+                "end": 263,
+                "proposition": "DATE_1"
             },
             {
-                "category": "ORGANISATION",
-                "original": "insee",
-                "start": 429,
-                "end": 434
+                "category": "EMAIL",
+                "original": "christelle.tessier@insee.fr",
+                "priorite": 2,
+                "start": 295,
+                "end": 322,
+                "proposition": "EMAIL_1"
             },
             {
-                "category": "ORGANISATION",
-                "original": "insee",
-                "start": 514,
-                "end": 519
+                "category": "DATE",
+                "original": "03/10/2026",
+                "priorite": 4,
+                "start": 345,
+                "end": 355,
+                "proposition": "DATE_2"
             },
             {
-                "category": "ORGANISATION",
-                "original": "insee",
-                "start": 718,
-                "end": 723
+                "category": "DATE",
+                "original": "2026-10-1",
+                "priorite": 4,
+                "start": 356,
+                "end": 365,
+                "proposition": "DATE_1"
             },
             {
-                "category": "ORGANISATION",
-                "original": "insee",
-                "start": 1257,
-                "end": 1262
-            },
-            {
-                "category": "ORGANISATION",
-                "original": "INSEE",
-                "start": 1343,
-                "end": 1348
-            },
-            {
-                "category": "INFOS_RESEAU",
-                "original": "db-prod-01.insee.local",
+                "category": "URL_INSEE",
+                "original": "db-prod-01.insee.local:5432/recensement",
+                "priorite": 2,
                 "start": 418,
-                "end": 440
+                "end": 457,
+                "proposition": "URL_INSEE_2"
             },
             {
-                "category": "INFOS_RESEAU",
-                "original": "fichiers-archives.s3.amazonaws.com",
-                "start": 1073,
-                "end": 1107
+                "category": "DATE",
+                "original": "2026-10-1",
+                "priorite": 4,
+                "start": 458,
+                "end": 467,
+                "proposition": "DATE_1"
+            },
+            {
+                "category": "URL_INSEE",
+                "original": "https://api.insee.fr/metadonnees/V1/info",
+                "priorite": 2,
+                "start": 502,
+                "end": 542,
+                "proposition": "URL_INSEE_3"
+            },
+            {
+                "category": "DATE",
+                "original": "2026-10-1",
+                "priorite": 4,
+                "start": 543,
+                "end": 552,
+                "proposition": "DATE_1"
+            },
+            {
+                "category": "NIR",
+                "original": "1 89 04 59 112 034",
+                "priorite": 1,
+                "start": 598,
+                "end": 616,
+                "proposition": "NIR_1"
+            },
+            {
+                "category": "DATE",
+                "original": "2026-10-1",
+                "priorite": 4,
+                "start": 633,
+                "end": 642,
+                "proposition": "DATE_1"
+            },
+            {
+                "category": "TELEPHONE",
+                "original": "01 45 68 90 12",
+                "priorite": 2,
+                "start": 683,
+                "end": 697,
+                "proposition": "TELEPHONE_1"
+            },
+            {
+                "category": "EMAIL",
+                "original": "agent.lyon@insee.fr",
+                "priorite": 2,
+                "start": 707,
+                "end": 726,
+                "proposition": "EMAIL_2"
+            },
+            {
+                "category": "DATE",
+                "original": "2026-10-1",
+                "priorite": 4,
+                "start": 727,
+                "end": 736,
+                "proposition": "DATE_1"
+            },
+            {
+                "category": "SECRET",
+                "original": "password: \"Adm1n!Rec2026\"",
+                "priorite": 1,
+                "start": 783,
+                "end": 808,
+                "proposition": "SECRET_1"
+            },
+            {
+                "category": "DATE",
+                "original": "2026-10-1",
+                "priorite": 4,
+                "start": 809,
+                "end": 818,
+                "proposition": "DATE_1"
+            },
+            {
+                "category": "SECRET",
+                "original": "eyJhbGciOiJIUzI1NiJ9.eyJ1aWQiOiJhZ2VudC0wMDIifQ.mB92K27uhbUJU1p1r_wW1gFWFOEjXk",
+                "priorite": 1,
+                "start": 858,
+                "end": 936,
+                "proposition": "SECRET_2"
+            },
+            {
+                "category": "DATE",
+                "original": "2026-10-1",
+                "priorite": 4,
+                "start": 937,
+                "end": 946,
+                "proposition": "DATE_1"
             },
             {
                 "category": "METADATA_PATHS",
                 "original": "/home/c",
+                "priorite": 3,
                 "start": 984,
-                "end": 991
+                "end": 991,
+                "proposition": "METADATA_PATHS_1"
+            },
+            {
+                "category": "DATE",
+                "original": "2026-10-1",
+                "priorite": 4,
+                "start": 1020,
+                "end": 1029,
+                "proposition": "DATE_1"
+            },
+            {
+                "category": "INFOS_RESEAU",
+                "original": "fichiers-archives.s3.amazonaws.com",
+                "priorite": 3,
+                "start": 1073,
+                "end": 1107,
+                "proposition": "INFOS_RESEAU_1"
+            },
+            {
+                "category": "DATE",
+                "original": "2026-10-1",
+                "priorite": 4,
+                "start": 1108,
+                "end": 1117,
+                "proposition": "DATE_1"
+            },
+            {
+                "category": "DATE",
+                "original": "1er septembre 2026",
+                "priorite": 2,
+                "start": 1157,
+                "end": 1175,
+                "proposition": "DATE_3"
+            },
+            {
+                "category": "DATE",
+                "original": "2026-09-1",
+                "priorite": 4,
+                "start": 1196,
+                "end": 1205,
+                "proposition": "DATE_4"
+            },
+            {
+                "category": "DATE",
+                "original": "2026-10-1",
+                "priorite": 4,
+                "start": 1207,
+                "end": 1216,
+                "proposition": "DATE_1"
+            },
+            {
+                "category": "URL_INSEE",
+                "original": "ldap.insee.corp",
+                "priorite": 2,
+                "start": 1252,
+                "end": 1267,
+                "proposition": "URL_INSEE_4"
+            },
+            {
+                "category": "IP",
+                "original": "192.168.10.7",
+                "priorite": 4,
+                "start": 1286,
+                "end": 1298,
+                "proposition": "IP_3"
+            },
+            {
+                "category": "DATE",
+                "original": "2026-10-1",
+                "priorite": 4,
+                "start": 1299,
+                "end": 1308,
+                "proposition": "DATE_1"
+            },
+            {
+                "category": "ORGANISATION",
+                "original": "INSEE",
+                "priorite": 4,
+                "start": 1343,
+                "end": 1348,
+                "proposition": "ORGANISATION_1"
             }
         ]
     },
@@ -274,148 +290,274 @@
         "modif_nom": null,
         "modif_interne": [
             {
-                "category": "SECRET",
-                "original": "password: \"S3cr3t!P@ss2026\"",
-                "start": 237,
-                "end": 264
-            },
-            {
-                "category": "SECRET",
-                "original": "api_key: \"sk-prod-9f8e7d6c5b4a3210fedcba9876543210\"",
-                "start": 273,
-                "end": 324
-            },
-            {
-                "category": "SECRET",
-                "original": "client_secret: \"cl3-s3cr3te-a-ne-pas-partager\"",
-                "start": 327,
-                "end": 373
-            },
-            {
-                "category": "SECRET",
-                "original": "auth_token: \"Bearer abc123def456ghi789\"",
-                "start": 376,
-                "end": 415
-            },
-            {
-                "category": "DB_CONNECTION",
-                "original": "jdbc:postgresql://db-prod-01.insee.local:5432/recensement",
-                "start": 147,
-                "end": 204
-            },
-            {
-                "category": "DB_CONNECTION",
-                "original": "db_user: \"admin_recense\"",
-                "start": 207,
-                "end": 231
-            },
-            {
-                "category": "DB_CONNECTION",
-                "original": "db_password: \"S3cr3t!P@ss2026\"",
-                "start": 234,
-                "end": 264
+                "category": "DATE",
+                "original": "12/10/2026",
+                "priorite": 4,
+                "start": 118,
+                "end": 128,
+                "proposition": "DATE_5"
             },
             {
                 "category": "URL_INSEE",
                 "original": "db-prod-01.insee.local:5432/recensement",
+                "priorite": 2,
                 "start": 165,
-                "end": 204
+                "end": 204,
+                "proposition": "URL_INSEE_2"
             },
             {
-                "category": "URL_INSEE",
-                "original": "ldap.insee.corp",
-                "start": 490,
-                "end": 505
+                "category": "DB_CONNECTION",
+                "original": "db_user: \"admin_recense\"",
+                "priorite": 3,
+                "start": 207,
+                "end": 231,
+                "proposition": "DB_CONNECTION_1"
             },
             {
-                "category": "EMAIL",
-                "original": "christelle.tessier@insee.fr",
-                "start": 600,
-                "end": 627
+                "category": "SECRET",
+                "original": "password: \"S3cr3t!P@ss2026\"",
+                "priorite": 1,
+                "start": 237,
+                "end": 264,
+                "proposition": "SECRET_3"
             },
             {
-                "category": "EMAIL",
-                "original": "agent.paris@insee.fr",
-                "start": 688,
-                "end": 708
+                "category": "SECRET",
+                "original": "api_key: \"sk-prod-9f8e7d6c5b4a3210fedcba9876543210\"",
+                "priorite": 1,
+                "start": 273,
+                "end": 324,
+                "proposition": "SECRET_4"
+            },
+            {
+                "category": "SECRET",
+                "original": "client_secret: \"cl3-s3cr3te-a-ne-pas-partager\"",
+                "priorite": 1,
+                "start": 327,
+                "end": 373,
+                "proposition": "SECRET_5"
+            },
+            {
+                "category": "SECRET",
+                "original": "auth_token: \"Bearer abc123def456ghi789\"",
+                "priorite": 1,
+                "start": 376,
+                "end": 415,
+                "proposition": "SECRET_6"
             },
             {
                 "category": "IP",
                 "original": "10.45.128.203",
+                "priorite": 4,
                 "start": 433,
-                "end": 446
+                "end": 446,
+                "proposition": "IP_1"
             },
             {
                 "category": "IP",
                 "original": "172.16.0.15",
+                "priorite": 4,
                 "start": 462,
-                "end": 473
+                "end": 473,
+                "proposition": "IP_2"
             },
             {
-                "category": "DATE",
-                "original": "12/10/2026",
-                "start": 118,
-                "end": 128
-            },
-            {
-                "category": "IDEP",
-                "original": "S3cr3t",
-                "start": 248,
-                "end": 254
-            },
-            {
-                "category": "IDEP",
-                "original": "ss2026",
-                "start": 257,
-                "end": 263
-            },
-            {
-                "category": "ORGANISATION",
-                "original": "insee",
-                "start": 176,
-                "end": 181
-            },
-            {
-                "category": "ORGANISATION",
-                "original": "insee",
-                "start": 495,
-                "end": 500
-            },
-            {
-                "category": "ORGANISATION",
-                "original": "insee",
-                "start": 619,
-                "end": 624
-            },
-            {
-                "category": "ORGANISATION",
-                "original": "insee",
-                "start": 700,
-                "end": 705
-            },
-            {
-                "category": "INFOS_RESEAU",
-                "original": "db-prod-01.insee.local",
-                "start": 165,
-                "end": 187
+                "category": "URL_INSEE",
+                "original": "ldap.insee.corp",
+                "priorite": 2,
+                "start": 490,
+                "end": 505,
+                "proposition": "URL_INSEE_4"
             },
             {
                 "category": "INFOS_RESEAU",
                 "original": "fichiers-archives.s3.amazonaws.com",
+                "priorite": 3,
                 "start": 517,
-                "end": 551
+                "end": 551,
+                "proposition": "INFOS_RESEAU_1"
+            },
+            {
+                "category": "EMAIL",
+                "original": "christelle.tessier@insee.fr",
+                "priorite": 2,
+                "start": 600,
+                "end": 627,
+                "proposition": "EMAIL_1"
             },
             {
                 "category": "METADATA_PATHS",
                 "original": "/home/c",
+                "priorite": 3,
                 "start": 638,
-                "end": 645
+                "end": 645,
+                "proposition": "METADATA_PATHS_1"
+            },
+            {
+                "category": "EMAIL",
+                "original": "agent.paris@insee.fr",
+                "priorite": 2,
+                "start": 688,
+                "end": 708,
+                "proposition": "EMAIL_3"
             },
             {
                 "category": "METADATA_PATHS",
                 "original": "C:\\Users\\ctessier\\Documents",
+                "priorite": 3,
                 "start": 719,
-                "end": 746
+                "end": 746,
+                "proposition": "METADATA_PATHS_2"
+            }
+        ]
+    },
+    {
+        "chemin_fichier": "C:\\Users\\ouvj8k\\Desktop\\Test3\\repository\\mon_api\\mon_api.json",
+        "modif_nom": null,
+        "modif_interne": [
+            {
+                "category": "DATE",
+                "original": "12/10/2026",
+                "priorite": 4,
+                "start": 68,
+                "end": 78,
+                "proposition": "DATE_5"
+            },
+            {
+                "category": "DATE",
+                "original": "2026-10-1",
+                "priorite": 4,
+                "start": 98,
+                "end": 107,
+                "proposition": "DATE_1"
+            },
+            {
+                "category": "ORGANISATION",
+                "original": "INSEE",
+                "priorite": 4,
+                "start": 136,
+                "end": 141,
+                "proposition": "ORGANISATION_1"
+            },
+            {
+                "category": "EMAIL",
+                "original": "christelle.tessier@insee.fr",
+                "priorite": 2,
+                "start": 212,
+                "end": 239,
+                "proposition": "EMAIL_1"
+            },
+            {
+                "category": "TELEPHONE",
+                "original": "06 12 34 56 78",
+                "priorite": 2,
+                "start": 262,
+                "end": 276,
+                "proposition": "TELEPHONE_2"
+            },
+            {
+                "category": "TELEPHONE",
+                "original": "+33 1 41 17 40 00",
+                "priorite": 2,
+                "start": 313,
+                "end": 330,
+                "proposition": "TELEPHONE_3"
+            },
+            {
+                "category": "NIR",
+                "original": "2 85 10 75 118 043 25",
+                "priorite": 1,
+                "start": 347,
+                "end": 368,
+                "proposition": "NIR_2"
+            },
+            {
+                "category": "SECRET",
+                "original": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZ2VudC0wMDMifQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c",
+                "priorite": 1,
+                "start": 475,
+                "end": 566,
+                "proposition": "SECRET_7"
+            },
+            {
+                "category": "INFOS_RESEAU",
+                "original": "db-recensement.insee.local",
+                "priorite": 3,
+                "start": 609,
+                "end": 635,
+                "proposition": "INFOS_RESEAU_2"
+            },
+            {
+                "category": "IDEP",
+                "original": "0racle",
+                "priorite": 4,
+                "start": 668,
+                "end": 674,
+                "proposition": "IDEP_2"
+            },
+            {
+                "category": "IP",
+                "original": "10.45.128.203",
+                "priorite": 4,
+                "start": 719,
+                "end": 732,
+                "proposition": "IP_1"
+            },
+            {
+                "category": "IP",
+                "original": "172.16.0.1",
+                "priorite": 4,
+                "start": 757,
+                "end": 767,
+                "proposition": "IP_4"
+            },
+            {
+                "category": "URL_INSEE",
+                "original": "ldap.insee.corp",
+                "priorite": 2,
+                "start": 795,
+                "end": 810,
+                "proposition": "URL_INSEE_4"
+            },
+            {
+                "category": "INFOS_RESEAU",
+                "original": "fichiers-archives.s3.amazonaws.com",
+                "priorite": 3,
+                "start": 831,
+                "end": 865,
+                "proposition": "INFOS_RESEAU_1"
+            },
+            {
+                "category": "URL_INSEE",
+                "original": "https://www.insee.fr/fr/identification",
+                "priorite": 2,
+                "start": 906,
+                "end": 944,
+                "proposition": "URL_INSEE_5"
+            },
+            {
+                "category": "URL_INSEE",
+                "original": "https://api.insee.fr/metadonnees/V1/info",
+                "priorite": 2,
+                "start": 963,
+                "end": 1003,
+                "proposition": "URL_INSEE_3"
+            },
+            {
+                "category": "IDEP",
+                "original": "AB3Z9K",
+                "priorite": 4,
+                "start": 1094,
+                "end": 1100,
+                "proposition": "IDEP_1"
+            },
+            {
+                "category": "DATE",
+                "original": "1er octobre 2026",
+                "priorite": 2,
+                "start": 1158,
+                "end": 1174,
+                "proposition": "DATE_6"
             }
         ]
     },
@@ -424,346 +566,180 @@
         "modif_nom": null,
         "modif_interne": [
             {
+                "category": "URL_INSEE",
+                "original": "fr.insee.dsi",
+                "priorite": 2,
+                "start": 8,
+                "end": 20,
+                "proposition": "URL_INSEE_6"
+            },
+            {
                 "category": "SECRET",
                 "original": "ACCESS_TOKEN = \"ghp_16C7e42F292c6912E7710c538347Ae178B4a\"",
+                "priorite": 1,
                 "start": 386,
-                "end": 443
+                "end": 443,
+                "proposition": "SECRET_8"
             },
             {
                 "category": "SECRET",
                 "original": "API_KEY = \"AIzaSyD-1234567890abcdef123456\"",
+                "priorite": 1,
                 "start": 477,
-                "end": 519
-            },
-            {
-                "category": "SECRET",
-                "original": "PASSWORD = \"Mot2Passe!Prod\"",
-                "start": 712,
-                "end": 739
-            },
-            {
-                "category": "SECRET",
-                "original": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZ2VudC0wMDEiLCJuYW1lIjoiQ2hyaXN0ZWxsZSJ9.dBjftJeZ4CVP-mB92K27uhbUJU1p1r_wW1gFWFOEjXk",
-                "start": 2399,
-                "end": 2532
-            },
-            {
-                "category": "DB_CONNECTION",
-                "original": "jdbc:mysql://mysql-recensement.insee.local:3306/agents",
-                "start": 620,
-                "end": 674
-            },
-            {
-                "category": "DB_CONNECTION",
-                "original": "DATABASE_URL = \"jdbc:mysql://mysql-recensement.insee.local:3306/agents\"",
-                "start": 604,
-                "end": 675
-            },
-            {
-                "category": "DB_CONNECTION",
-                "original": "DB_PASSWORD = \"Mot2Passe!Prod\"",
-                "start": 709,
-                "end": 739
-            },
-            {
-                "category": "URL_API",
-                "original": "https://www.insee.fr/fr/identification",
-                "start": 832,
-                "end": 870
-            },
-            {
-                "category": "URL_API",
-                "original": "https://api.insee.fr/metadonnees/V1/info",
-                "start": 921,
-                "end": 961
-            },
-            {
-                "category": "URL_INSEE",
-                "original": "fr.insee.dsi",
-                "start": 8,
-                "end": 20
+                "end": 519,
+                "proposition": "SECRET_9"
             },
             {
                 "category": "URL_INSEE",
                 "original": "mysql-recensement.insee.local:3306/agents",
+                "priorite": 2,
                 "start": 633,
-                "end": 674
+                "end": 674,
+                "proposition": "URL_INSEE_7"
+            },
+            {
+                "category": "SECRET",
+                "original": "PASSWORD = \"Mot2Passe!Prod\"",
+                "priorite": 1,
+                "start": 712,
+                "end": 739,
+                "proposition": "SECRET_10"
+            },
+            {
+                "category": "ORGANISATION",
+                "original": "INSEE",
+                "priorite": 4,
+                "start": 782,
+                "end": 787,
+                "proposition": "ORGANISATION_1"
             },
             {
                 "category": "URL_INSEE",
-                "original": "files.insee.internal",
-                "start": 1739,
-                "end": 1759
+                "original": "https://www.insee.fr/fr/identification",
+                "priorite": 2,
+                "start": 832,
+                "end": 870,
+                "proposition": "URL_INSEE_5"
+            },
+            {
+                "category": "URL_INSEE",
+                "original": "https://api.insee.fr/metadonnees/V1/info",
+                "priorite": 2,
+                "start": 921,
+                "end": 961,
+                "proposition": "URL_INSEE_3"
             },
             {
                 "category": "EMAIL",
                 "original": "christelle.tessier@insee.fr",
+                "priorite": 2,
                 "start": 1082,
-                "end": 1109
+                "end": 1109,
+                "proposition": "EMAIL_1"
             },
             {
                 "category": "NIR",
                 "original": "2 85 10 75 118 043 25",
+                "priorite": 1,
                 "start": 1157,
-                "end": 1178
+                "end": 1178,
+                "proposition": "NIR_2"
             },
             {
                 "category": "NIR",
                 "original": "1851075118043",
+                "priorite": 1,
                 "start": 1227,
-                "end": 1240
+                "end": 1240,
+                "proposition": "NIR_3"
             },
             {
                 "category": "TELEPHONE",
                 "original": "06 12 34 56 78",
+                "priorite": 2,
                 "start": 1289,
-                "end": 1303
+                "end": 1303,
+                "proposition": "TELEPHONE_2"
             },
             {
                 "category": "TELEPHONE",
                 "original": "+33 1 41 17 40 00",
+                "priorite": 2,
                 "start": 1350,
-                "end": 1367
-            },
-            {
-                "category": "IP",
-                "original": "192.168.1.50",
-                "start": 1721,
-                "end": 1733
+                "end": 1367,
+                "proposition": "TELEPHONE_3"
             },
             {
                 "category": "DATE",
                 "original": "2026-10-1",
+                "priorite": 4,
                 "start": 1523,
-                "end": 1532
-            },
-            {
-                "category": "DATE",
-                "original": "8.1.50",
-                "start": 1727,
-                "end": 1733
-            },
-            {
-                "category": "DATE",
-                "original": "05/09/2026",
-                "start": 2337,
-                "end": 2347
+                "end": 1532,
+                "proposition": "DATE_1"
             },
             {
                 "category": "DATE",
                 "original": "12 octobre 2026",
+                "priorite": 2,
                 "start": 1582,
-                "end": 1597
+                "end": 1597,
+                "proposition": "DATE_7"
+            },
+            {
+                "category": "IP",
+                "original": "192.168.1.50",
+                "priorite": 4,
+                "start": 1721,
+                "end": 1733,
+                "proposition": "IP_5"
+            },
+            {
+                "category": "URL_INSEE",
+                "original": "files.insee.internal",
+                "priorite": 2,
+                "start": 1739,
+                "end": 1759,
+                "proposition": "URL_INSEE_8"
             },
             {
                 "category": "IDEP",
                 "original": "AB3Z9K",
+                "priorite": 4,
                 "start": 1872,
-                "end": 1878
-            },
-            {
-                "category": "ORGANISATION",
-                "original": "insee",
-                "start": 11,
-                "end": 16
-            },
-            {
-                "category": "ORGANISATION",
-                "original": "insee",
-                "start": 651,
-                "end": 656
+                "end": 1878,
+                "proposition": "IDEP_1"
             },
             {
                 "category": "ORGANISATION",
                 "original": "INSEE",
-                "start": 782,
-                "end": 787
-            },
-            {
-                "category": "ORGANISATION",
-                "original": "insee",
-                "start": 844,
-                "end": 849
-            },
-            {
-                "category": "ORGANISATION",
-                "original": "insee",
-                "start": 933,
-                "end": 938
-            },
-            {
-                "category": "ORGANISATION",
-                "original": "insee",
-                "start": 1101,
-                "end": 1106
-            },
-            {
-                "category": "ORGANISATION",
-                "original": "insee",
-                "start": 1745,
-                "end": 1750
-            },
-            {
-                "category": "ORGANISATION",
-                "original": "INSEE",
+                "priorite": 4,
                 "start": 1966,
-                "end": 1971
-            },
-            {
-                "category": "INFOS_RESEAU",
-                "original": "mysql-recensement.insee.local",
-                "start": 633,
-                "end": 662
+                "end": 1971,
+                "proposition": "ORGANISATION_1"
             },
             {
                 "category": "METADATA_PATHS",
                 "original": "/Users/ctessier",
+                "priorite": 3,
                 "start": 2126,
-                "end": 2141
-            }
-        ]
-    },
-    {
-        "chemin_fichier": "C:\\Users\\ouvj8k\\Desktop\\Test3\\repository\\mon_api\\playload.json",
-        "modif_nom": null,
-        "modif_interne": [
+                "end": 2141,
+                "proposition": "METADATA_PATHS_3"
+            },
+            {
+                "category": "DATE",
+                "original": "05/09/2026",
+                "priorite": 4,
+                "start": 2337,
+                "end": 2347,
+                "proposition": "DATE_8"
+            },
             {
                 "category": "SECRET",
-                "original": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZ2VudC0wMDMifQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c",
-                "start": 475,
-                "end": 566
-            },
-            {
-                "category": "URL_API",
-                "original": "https://www.insee.fr/fr/identification",
-                "start": 906,
-                "end": 944
-            },
-            {
-                "category": "URL_API",
-                "original": "https://api.insee.fr/metadonnees/V1/info",
-                "start": 963,
-                "end": 1003
-            },
-            {
-                "category": "URL_INSEE",
-                "original": "ldap.insee.corp",
-                "start": 795,
-                "end": 810
-            },
-            {
-                "category": "EMAIL",
-                "original": "christelle.tessier@insee.fr",
-                "start": 212,
-                "end": 239
-            },
-            {
-                "category": "NIR",
-                "original": "2 85 10 75 118 043 25",
-                "start": 347,
-                "end": 368
-            },
-            {
-                "category": "TELEPHONE",
-                "original": "06 12 34 56 78",
-                "start": 262,
-                "end": 276
-            },
-            {
-                "category": "TELEPHONE",
-                "original": "+33 1 41 17 40 00",
-                "start": 313,
-                "end": 330
-            },
-            {
-                "category": "IP",
-                "original": "10.45.128.203",
-                "start": 719,
-                "end": 732
-            },
-            {
-                "category": "IP",
-                "original": "172.16.0.1",
-                "start": 757,
-                "end": 767
-            },
-            {
-                "category": "DATE",
-                "original": "12/10/2026",
-                "start": 68,
-                "end": 78
-            },
-            {
-                "category": "DATE",
-                "original": "2026-10-1",
-                "start": 98,
-                "end": 107
-            },
-            {
-                "category": "DATE",
-                "original": "1er octobre 2026",
-                "start": 1158,
-                "end": 1174
-            },
-            {
-                "category": "IDEP",
-                "original": "0racle",
-                "start": 668,
-                "end": 674
-            },
-            {
-                "category": "IDEP",
-                "original": "AB3Z9K",
-                "start": 1094,
-                "end": 1100
-            },
-            {
-                "category": "ORGANISATION",
-                "original": "INSEE",
-                "start": 136,
-                "end": 141
-            },
-            {
-                "category": "ORGANISATION",
-                "original": "insee",
-                "start": 231,
-                "end": 236
-            },
-            {
-                "category": "ORGANISATION",
-                "original": "insee",
-                "start": 624,
-                "end": 629
-            },
-            {
-                "category": "ORGANISATION",
-                "original": "insee",
-                "start": 800,
-                "end": 805
-            },
-            {
-                "category": "ORGANISATION",
-                "original": "insee",
-                "start": 918,
-                "end": 923
-            },
-            {
-                "category": "ORGANISATION",
-                "original": "insee",
-                "start": 975,
-                "end": 980
-            },
-            {
-                "category": "INFOS_RESEAU",
-                "original": "db-recensement.insee.local",
-                "start": 609,
-                "end": 635
-            },
-            {
-                "category": "INFOS_RESEAU",
-                "original": "fichiers-archives.s3.amazonaws.com",
-                "start": 831,
-                "end": 865
+                "original": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZ2VudC0wMDEiLCJuYW1lIjoiQ2hyaXN0ZWxsZSJ9.dBjftJeZ4CVP-mB92K27uhbUJU1p1r_wW1gFWFOEjXk",
+                "priorite": 1,
+                "start": 2399,
+                "end": 2532,
+                "proposition": "SECRET_11"
             }
         ]
     },
@@ -774,158 +750,146 @@
             {
                 "category": "SECRET",
                 "original": "password: \"Sup3rS3cret!\"",
+                "priorite": 1,
                 "start": 76,
-                "end": 100
+                "end": 100,
+                "proposition": "SECRET_12"
             },
             {
                 "category": "SECRET",
                 "original": "passwd: \"recensement2026\"",
+                "priorite": 1,
                 "start": 103,
-                "end": 128
+                "end": 128,
+                "proposition": "SECRET_13"
             },
             {
                 "category": "SECRET",
                 "original": "client_secret: \"cs_9876543210fedcba\"",
+                "priorite": 1,
                 "start": 131,
-                "end": 167
+                "end": 167,
+                "proposition": "SECRET_14"
             },
             {
                 "category": "SECRET",
                 "original": "-----BEGIN RSA PRIVATE KEY-----",
+                "priorite": 1,
                 "start": 196,
-                "end": 227
+                "end": 227,
+                "proposition": "SECRET_15"
             },
             {
                 "category": "SECRET",
                 "original": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYWRtaW4ifQ.KxwRJSMeKKF2QT4fwpMeJf36POk6yJV",
+                "priorite": 1,
                 "start": 409,
-                "end": 500
-            },
-            {
-                "category": "DB_CONNECTION",
-                "original": "jdbc:postgresql://db-recensement.insee.local:5432/agents",
-                "start": 531,
-                "end": 587
-            },
-            {
-                "category": "DB_CONNECTION",
-                "original": "database_url: \"jdbc:postgresql://db-recensement.insee.local:5432/agents\"",
-                "start": 516,
-                "end": 588
-            },
-            {
-                "category": "URL_API",
-                "original": "https://api-p.interne.insee.fr/v1",
-                "start": 600,
-                "end": 633
-            },
-            {
-                "category": "URL_API",
-                "original": "http://10.45.128.203",
-                "start": 651,
-                "end": 671
+                "end": 500,
+                "proposition": "SECRET_16"
             },
             {
                 "category": "URL_INSEE",
                 "original": "db-recensement.insee.local:5432/agents",
+                "priorite": 2,
                 "start": 549,
-                "end": 587
+                "end": 587,
+                "proposition": "URL_INSEE_9"
             },
             {
-                "category": "EMAIL",
-                "original": "marc.martin@insee.fr",
-                "start": 847,
-                "end": 867
+                "category": "URL_INSEE",
+                "original": "https://api-p.interne.insee.fr/v1",
+                "priorite": 2,
+                "start": 600,
+                "end": 633,
+                "proposition": "URL_INSEE_10"
             },
             {
-                "category": "EMAIL",
-                "original": "claire.leroy@insee.fr",
-                "start": 959,
-                "end": 980
-            },
-            {
-                "category": "NIR",
-                "original": "1 23 45 67 890 123 45",
-                "start": 1053,
-                "end": 1074
-            },
-            {
-                "category": "TELEPHONE",
-                "original": "+33 6 98 76 54 32",
-                "start": 882,
-                "end": 899
-            },
-            {
-                "category": "TELEPHONE",
-                "original": "07 89 01 23 45",
-                "start": 995,
-                "end": 1009
-            },
-            {
-                "category": "IP",
-                "original": "10.45.128.203",
-                "start": 658,
-                "end": 671
-            },
-            {
-                "category": "IP",
-                "original": "172.16.0.15",
-                "start": 794,
-                "end": 805
-            },
-            {
-                "category": "DATE",
-                "original": "2024-01-1",
-                "start": 916,
-                "end": 925
-            },
-            {
-                "category": "DATE",
-                "original": "15/02/2023",
-                "start": 1026,
-                "end": 1036
-            },
-            {
-                "category": "ORGANISATION",
-                "original": "insee",
-                "start": 564,
-                "end": 569
-            },
-            {
-                "category": "ORGANISATION",
-                "original": "insee",
-                "start": 622,
-                "end": 627
-            },
-            {
-                "category": "ORGANISATION",
-                "original": "insee",
-                "start": 859,
-                "end": 864
-            },
-            {
-                "category": "ORGANISATION",
-                "original": "insee",
-                "start": 972,
-                "end": 977
-            },
-            {
-                "category": "INFOS_RESEAU",
-                "original": "db-recensement.insee.local",
-                "start": 549,
-                "end": 575
+                "category": "URL_API",
+                "original": "http://10.45.128.203",
+                "priorite": 3,
+                "start": 651,
+                "end": 671,
+                "proposition": "URL_API_1"
             },
             {
                 "category": "INFOS_RESEAU",
                 "original": "proxy.sortie.lan",
+                "priorite": 3,
                 "start": 711,
-                "end": 727
+                "end": 727,
+                "proposition": "INFOS_RESEAU_3"
             },
             {
                 "category": "INFOS_RESEAU",
                 "original": "donnees-brutes.s3.amazonaws.com",
+                "priorite": 3,
                 "start": 743,
-                "end": 774
+                "end": 774,
+                "proposition": "INFOS_RESEAU_4"
+            },
+            {
+                "category": "IP",
+                "original": "172.16.0.15",
+                "priorite": 4,
+                "start": 794,
+                "end": 805,
+                "proposition": "IP_2"
+            },
+            {
+                "category": "EMAIL",
+                "original": "marc.martin@insee.fr",
+                "priorite": 2,
+                "start": 847,
+                "end": 867,
+                "proposition": "EMAIL_4"
+            },
+            {
+                "category": "TELEPHONE",
+                "original": "+33 6 98 76 54 32",
+                "priorite": 2,
+                "start": 882,
+                "end": 899,
+                "proposition": "TELEPHONE_4"
+            },
+            {
+                "category": "DATE",
+                "original": "2024-01-1",
+                "priorite": 4,
+                "start": 916,
+                "end": 925,
+                "proposition": "DATE_9"
+            },
+            {
+                "category": "EMAIL",
+                "original": "claire.leroy@insee.fr",
+                "priorite": 2,
+                "start": 959,
+                "end": 980,
+                "proposition": "EMAIL_5"
+            },
+            {
+                "category": "TELEPHONE",
+                "original": "07 89 01 23 45",
+                "priorite": 2,
+                "start": 995,
+                "end": 1009,
+                "proposition": "TELEPHONE_5"
+            },
+            {
+                "category": "DATE",
+                "original": "15/02/2023",
+                "priorite": 4,
+                "start": 1026,
+                "end": 1036,
+                "proposition": "DATE_10"
+            },
+            {
+                "category": "NIR",
+                "original": "1 23 45 67 890 123 45",
+                "priorite": 1,
+                "start": 1053,
+                "end": 1074,
+                "proposition": "NIR_4"
             }
         ]
     },
@@ -934,125 +898,130 @@
         "modif_nom": null,
         "modif_interne": [
             {
-                "category": "SECRET",
-                "original": "API_KEY = \"api_key = \\\"",
-                "start": 293,
-                "end": 316
+                "category": "URL_INSEE",
+                "original": "fr.insee.dsi.repository",
+                "priorite": 2,
+                "start": 8,
+                "end": 31,
+                "proposition": "URL_INSEE_11"
             },
             {
                 "category": "SECRET",
-                "original": "ACCESS_TOKEN = \"access_token:\\\"",
-                "start": 472,
-                "end": 503
+                "original": "API_KEY = \"api_key = \\\"",
+                "priorite": 1,
+                "start": 293,
+                "end": 316,
+                "proposition": "SECRET_17"
             },
             {
                 "category": "SECRET",
                 "original": "-----BEGIN EC PRIVATE KEY-----",
+                "priorite": 1,
                 "start": 388,
-                "end": 418
+                "end": 418,
+                "proposition": "SECRET_18"
+            },
+            {
+                "category": "SECRET",
+                "original": "ACCESS_TOKEN = \"access_token:\\\"",
+                "priorite": 1,
+                "start": 472,
+                "end": 503,
+                "proposition": "SECRET_19"
             },
             {
                 "category": "SECRET",
                 "original": "eyJ0eXAiOiJKV1QiLA0sKicwfQ.eyJpc3MiOiJib2IifQ.DtEhU3SjbEg",
+                "priorite": 1,
                 "start": 503,
-                "end": 560
-            },
-            {
-                "category": "URL_API",
-                "original": "https://ws-qualif.insee.fr/dossiers/",
-                "start": 1116,
-                "end": 1152
-            },
-            {
-                "category": "URL_INSEE",
-                "original": "fr.insee.dsi.repository",
-                "start": 8,
-                "end": 31
-            },
-            {
-                "category": "URL_INSEE",
-                "original": "ws-calcul-01.insee.priv",
-                "start": 1557,
-                "end": 1580
-            },
-            {
-                "category": "EMAIL",
-                "original": "alain.durand@insee.fr",
-                "start": 826,
-                "end": 847
-            },
-            {
-                "category": "NIR",
-                "original": "1 84 03 76 209 114 33",
-                "start": 875,
-                "end": 896
-            },
-            {
-                "category": "TELEPHONE",
-                "original": "05 55 12 34 56",
-                "start": 854,
-                "end": 868
-            },
-            {
-                "category": "IP",
-                "original": "10.0.12.8",
-                "start": 1546,
-                "end": 1555
-            },
-            {
-                "category": "DATE",
-                "original": "2026-10-1",
-                "start": 1322,
-                "end": 1331
-            },
-            {
-                "category": "DATE",
-                "original": "30 septembre 2026",
-                "start": 1397,
-                "end": 1414
-            },
-            {
-                "category": "ORGANISATION",
-                "original": "insee",
-                "start": 11,
-                "end": 16
-            },
-            {
-                "category": "ORGANISATION",
-                "original": "insee",
-                "start": 688,
-                "end": 693
-            },
-            {
-                "category": "ORGANISATION",
-                "original": "insee",
-                "start": 839,
-                "end": 844
-            },
-            {
-                "category": "ORGANISATION",
-                "original": "insee",
-                "start": 1134,
-                "end": 1139
-            },
-            {
-                "category": "ORGANISATION",
-                "original": "insee",
-                "start": 1570,
-                "end": 1575
+                "end": 560,
+                "proposition": "SECRET_20"
             },
             {
                 "category": "INFOS_RESEAU",
                 "original": "db-qualif.insee.local",
+                "priorite": 3,
                 "start": 678,
-                "end": 699
+                "end": 699,
+                "proposition": "INFOS_RESEAU_5"
+            },
+            {
+                "category": "EMAIL",
+                "original": "alain.durand@insee.fr",
+                "priorite": 2,
+                "start": 826,
+                "end": 847,
+                "proposition": "EMAIL_6"
+            },
+            {
+                "category": "TELEPHONE",
+                "original": "05 55 12 34 56",
+                "priorite": 2,
+                "start": 854,
+                "end": 868,
+                "proposition": "TELEPHONE_6"
+            },
+            {
+                "category": "NIR",
+                "original": "1 84 03 76 209 114 33",
+                "priorite": 1,
+                "start": 875,
+                "end": 896,
+                "proposition": "NIR_5"
+            },
+            {
+                "category": "URL_INSEE",
+                "original": "https://ws-qualif.insee.fr/dossiers/",
+                "priorite": 2,
+                "start": 1116,
+                "end": 1152,
+                "proposition": "URL_INSEE_12"
             },
             {
                 "category": "METADATA_PATHS",
                 "original": "/home/a",
+                "priorite": 3,
                 "start": 1189,
-                "end": 1196
+                "end": 1196,
+                "proposition": "METADATA_PATHS_4"
+            },
+            {
+                "category": "DATE",
+                "original": "2026-10-1",
+                "priorite": 4,
+                "start": 1322,
+                "end": 1331,
+                "proposition": "DATE_1"
+            },
+            {
+                "category": "DATE",
+                "original": "30 septembre 2026",
+                "priorite": 2,
+                "start": 1397,
+                "end": 1414,
+                "proposition": "DATE_11"
+            },
+            {
+                "category": "IP",
+                "original": "10.0.12.8",
+                "priorite": 4,
+                "start": 1546,
+                "end": 1555,
+                "proposition": "IP_6"
+            },
+            {
+                "category": "URL_INSEE",
+                "original": "ws-calcul-01.insee.priv",
+                "priorite": 2,
+                "start": 1557,
+                "end": 1580,
+                "proposition": "URL_INSEE_13"
             }
         ]
+    },
+    {
+        "chemin_fichier": "C:\\Users\\ouvj8k\\Desktop\\Test3\\useValidation.js",
+        "modif_nom": null,
+        "modif_interne": null
     }
 ]
