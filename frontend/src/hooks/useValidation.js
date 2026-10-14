@@ -14,7 +14,7 @@ export function useValidation(folderPath) {
     set_loading(true)
     set_error(null)
     try {
-      const data = await fetch_validation_plan(folderPath)
+      const data = await fetch_validation_plan()
       // On initialise les décisions par défaut
       const initialized = data.plan.map((f) => ({
         ...f,

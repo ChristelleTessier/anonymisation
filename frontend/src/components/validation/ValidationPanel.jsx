@@ -26,7 +26,7 @@ function ValidationPanel({
       {/* En-tête */}
       <div className="validation_header">
         <div>
-          <h3 className="validation_title"></h3>
+          <h3 className="validation_title">Validation du plan d'anonymisation</h3>
           <p className="validation_subtitle">Vérifiez chaque détection avant application</p>
         </div>
         <div className="validation_stats">
@@ -83,8 +83,11 @@ function ValidationPanel({
         <div className="file_decision_buttons">
           <button
             className={`btn_file ${current.decision_fichier === 'o' ? 'active_ok' : ''}`}
-            onClick={() => update_fichier_decision(current_index, 'o')}
-          >✓ Anonymiser</button>
+            onClick={() => {
+              update_fichier_decision(current_index, 'o')
+              if (current_index < plan.length - 1) go_next()
+            }}
+          >✓ Valider le plan pour le fichier</button>
           <button
             className={`btn_file ${current.decision_fichier === 'n' ? 'active_skip' : ''}`}
             onClick={() => update_fichier_decision(current_index, 'n')}

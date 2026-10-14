@@ -1,0 +1,647 @@
+[
+  {
+    "chemin_fichier": "C:\\Users\\ouvj8k\\Desktop\\Test3\\application.log",
+    "modif_interne": [
+      {
+        "category": "DATE",
+        "original": "2026-10-1",
+        "proposition": "datedate"
+      },
+      {
+        "category": "URL_INSEE",
+        "original": "http://ws-recense.insee.fr:8080",
+        "proposition": "URL_INSEE_1"
+      },
+      {
+        "category": "DATE",
+        "original": "2026-10-1",
+        "proposition": "DATE_1"
+      },
+      {
+        "category": "IP",
+        "original": "10.45.128.203",
+        "proposition": "IP_1"
+      },
+      {
+        "category": "DATE",
+        "original": "2026-10-1",
+        "proposition": "DATE_1"
+      },
+      {
+        "category": "IDEP",
+        "original": "AB3Z9K",
+        "proposition": "IDEP_1"
+      },
+      {
+        "category": "IP",
+        "original": "172.16.0.15",
+        "proposition": "IP_2"
+      },
+      {
+        "category": "DATE",
+        "original": "2026-10-1",
+        "proposition": "DATE_1"
+      },
+      {
+        "category": "EMAIL",
+        "original": "christelle.tessier@insee.fr",
+        "proposition": "EMAIL_1"
+      },
+      {
+        "category": "DATE",
+        "original": "03/10/2026",
+        "proposition": "DATE_2"
+      },
+      {
+        "category": "DATE",
+        "original": "2026-10-1",
+        "proposition": "DATE_1"
+      },
+      {
+        "category": "URL_INSEE",
+        "original": "db-prod-01.insee.local:5432/recensement",
+        "proposition": "URL_INSEE_2"
+      },
+      {
+        "category": "DATE",
+        "original": "2026-10-1",
+        "proposition": "DATE_1"
+      },
+      {
+        "category": "URL_INSEE",
+        "original": "https://api.insee.fr/metadonnees/V1/info",
+        "proposition": "URL_INSEE_3"
+      },
+      {
+        "category": "DATE",
+        "original": "2026-10-1",
+        "proposition": "DATE_1"
+      },
+      {
+        "category": "NIR",
+        "original": "1 89 04 59 112 034",
+        "proposition": "NIR_1"
+      },
+      {
+        "category": "DATE",
+        "original": "2026-10-1",
+        "proposition": "DATE_1"
+      },
+      {
+        "category": "TELEPHONE",
+        "original": "01 45 68 90 12",
+        "proposition": "TELEPHONE_1"
+      },
+      {
+        "category": "EMAIL",
+        "original": "agent.lyon@insee.fr",
+        "proposition": "EMAIL_2"
+      },
+      {
+        "category": "DATE",
+        "original": "2026-10-1",
+        "proposition": "DATE_1"
+      },
+      {
+        "category": "SECRET",
+        "original": "password: \"Adm1n!Rec2026\"",
+        "proposition": "SECRET_1"
+      },
+      {
+        "category": "DATE",
+        "original": "2026-10-1",
+        "proposition": "DATE_1"
+      },
+      {
+        "category": "SECRET",
+        "original": "eyJhbGciOiJIUzI1NiJ9.eyJ1aWQiOiJhZ2VudC0wMDIifQ.mB92K27uhbUJU1p1r_wW1gFWFOEjXk",
+        "proposition": "SECRET_2"
+      },
+      {
+        "category": "DATE",
+        "original": "2026-10-1",
+        "proposition": "DATE_1"
+      },
+      {
+        "category": "METADATA_PATHS",
+        "original": "/home/c",
+        "proposition": "METADATA_PATHS_1"
+      },
+      {
+        "category": "DATE",
+        "original": "2026-10-1",
+        "proposition": "DATE_1"
+      },
+      {
+        "category": "INFOS_RESEAU",
+        "original": "fichiers-archives.s3.amazonaws.com",
+        "proposition": "INFOS_RESEAU_1"
+      },
+      {
+        "category": "DATE",
+        "original": "2026-10-1",
+        "proposition": "DATE_1"
+      },
+      {
+        "category": "DATE",
+        "original": "1er septembre 2026",
+        "proposition": "DATE_3"
+      },
+      {
+        "category": "DATE",
+        "original": "2026-09-1",
+        "proposition": "DATE_4"
+      },
+      {
+        "category": "DATE",
+        "original": "2026-10-1",
+        "proposition": "DATE_1"
+      },
+      {
+        "category": "URL_INSEE",
+        "original": "ldap.insee.corp",
+        "proposition": "URL_INSEE_4"
+      },
+      {
+        "category": "IP",
+        "original": "192.168.10.7",
+        "proposition": "IP_3"
+      },
+      {
+        "category": "DATE",
+        "original": "2026-10-1",
+        "proposition": "DATE_1"
+      },
+      {
+        "category": "ORGANISATION",
+        "original": "INSEE",
+        "proposition": "ORGANISATION_1"
+      }
+    ]
+  },
+  {
+    "chemin_fichier": "C:\\Users\\ouvj8k\\Desktop\\Test3\\config.yml",
+    "modif_interne": [
+      {
+        "category": "DATE",
+        "original": "12/10/2026",
+        "proposition": "DATE_5"
+      },
+      {
+        "category": "URL_INSEE",
+        "original": "db-prod-01.insee.local:5432/recensement",
+        "proposition": "URL_INSEE_2"
+      },
+      {
+        "category": "DB_CONNECTION",
+        "original": "db_user: \"admin_recense\"",
+        "proposition": "DB_CONNECTION_1"
+      },
+      {
+        "category": "SECRET",
+        "original": "password: \"S3cr3t!P@ss2026\"",
+        "proposition": "SECRET_3"
+      },
+      {
+        "category": "SECRET",
+        "original": "api_key: \"sk-prod-9f8e7d6c5b4a3210fedcba9876543210\"",
+        "proposition": "SECRET_4"
+      },
+      {
+        "category": "SECRET",
+        "original": "client_secret: \"cl3-s3cr3te-a-ne-pas-partager\"",
+        "proposition": "SECRET_5"
+      },
+      {
+        "category": "SECRET",
+        "original": "auth_token: \"Bearer abc123def456ghi789\"",
+        "proposition": "SECRET_6"
+      },
+      {
+        "category": "IP",
+        "original": "10.45.128.203",
+        "proposition": "IP_1"
+      },
+      {
+        "category": "IP",
+        "original": "172.16.0.15",
+        "proposition": "IP_2"
+      },
+      {
+        "category": "URL_INSEE",
+        "original": "ldap.insee.corp",
+        "proposition": "URL_INSEE_4"
+      },
+      {
+        "category": "INFOS_RESEAU",
+        "original": "fichiers-archives.s3.amazonaws.com",
+        "proposition": "INFOS_RESEAU_1"
+      },
+      {
+        "category": "EMAIL",
+        "original": "christelle.tessier@insee.fr",
+        "proposition": "EMAIL_1"
+      },
+      {
+        "category": "METADATA_PATHS",
+        "original": "/home/c",
+        "proposition": "METADATA_PATHS_1"
+      },
+      {
+        "category": "EMAIL",
+        "original": "agent.paris@insee.fr",
+        "proposition": "EMAIL_3"
+      },
+      {
+        "category": "METADATA_PATHS",
+        "original": "C:\\Users\\ctessier\\Documents",
+        "proposition": "METADATA_PATHS_2"
+      }
+    ]
+  },
+  {
+    "chemin_fichier": "C:\\Users\\ouvj8k\\Desktop\\Test3\\repository\\mon_api\\mon_api.json",
+    "modif_interne": [
+      {
+        "category": "DATE",
+        "original": "12/10/2026",
+        "proposition": "DATE_5"
+      },
+      {
+        "category": "DATE",
+        "original": "2026-10-1",
+        "proposition": "DATE_1"
+      },
+      {
+        "category": "ORGANISATION",
+        "original": "INSEE",
+        "proposition": "ORGANISATION_1"
+      },
+      {
+        "category": "EMAIL",
+        "original": "christelle.tessier@insee.fr",
+        "proposition": "EMAIL_1"
+      },
+      {
+        "category": "TELEPHONE",
+        "original": "06 12 34 56 78",
+        "proposition": "TELEPHONE_2"
+      },
+      {
+        "category": "TELEPHONE",
+        "original": "+33 1 41 17 40 00",
+        "proposition": "TELEPHONE_3"
+      },
+      {
+        "category": "NIR",
+        "original": "2 85 10 75 118 043 25",
+        "proposition": "NIR_2"
+      },
+      {
+        "category": "SECRET",
+        "original": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZ2VudC0wMDMifQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c",
+        "proposition": "SECRET_7"
+      },
+      {
+        "category": "INFOS_RESEAU",
+        "original": "db-recensement.insee.local",
+        "proposition": "INFOS_RESEAU_2"
+      },
+      {
+        "category": "IDEP",
+        "original": "0racle",
+        "proposition": "IDEP_2"
+      },
+      {
+        "category": "IP",
+        "original": "10.45.128.203",
+        "proposition": "IP_1"
+      },
+      {
+        "category": "IP",
+        "original": "172.16.0.1",
+        "proposition": "IP_4"
+      },
+      {
+        "category": "URL_INSEE",
+        "original": "ldap.insee.corp",
+        "proposition": "URL_INSEE_4"
+      },
+      {
+        "category": "INFOS_RESEAU",
+        "original": "fichiers-archives.s3.amazonaws.com",
+        "proposition": "INFOS_RESEAU_1"
+      },
+      {
+        "category": "URL_INSEE",
+        "original": "https://www.insee.fr/fr/identification",
+        "proposition": "URL_INSEE_5"
+      },
+      {
+        "category": "URL_INSEE",
+        "original": "https://api.insee.fr/metadonnees/V1/info",
+        "proposition": "URL_INSEE_3"
+      },
+      {
+        "category": "IDEP",
+        "original": "AB3Z9K",
+        "proposition": "IDEP_1"
+      },
+      {
+        "category": "DATE",
+        "original": "1er octobre 2026",
+        "proposition": "DATE_6"
+      }
+    ]
+  },
+  {
+    "chemin_fichier": "C:\\Users\\ouvj8k\\Desktop\\Test3\\repository\\mon_api\\NotificationService.java",
+    "modif_interne": [
+      {
+        "category": "URL_INSEE",
+        "original": "fr.insee.dsi",
+        "proposition": "URL_INSEE_6"
+      },
+      {
+        "category": "SECRET",
+        "original": "ACCESS_TOKEN = \"ghp_16C7e42F292c6912E7710c538347Ae178B4a\"",
+        "proposition": "SECRET_8"
+      },
+      {
+        "category": "SECRET",
+        "original": "API_KEY = \"AIzaSyD-1234567890abcdef123456\"",
+        "proposition": "SECRET_9"
+      },
+      {
+        "category": "URL_INSEE",
+        "original": "mysql-recensement.insee.local:3306/agents",
+        "proposition": "URL_INSEE_7"
+      },
+      {
+        "category": "SECRET",
+        "original": "PASSWORD = \"Mot2Passe!Prod\"",
+        "proposition": "SECRET_10"
+      },
+      {
+        "category": "ORGANISATION",
+        "original": "INSEE",
+        "proposition": "ORGANISATION_1"
+      },
+      {
+        "category": "URL_INSEE",
+        "original": "https://www.insee.fr/fr/identification",
+        "proposition": "URL_INSEE_5"
+      },
+      {
+        "category": "URL_INSEE",
+        "original": "https://api.insee.fr/metadonnees/V1/info",
+        "proposition": "URL_INSEE_3"
+      },
+      {
+        "category": "EMAIL",
+        "original": "christelle.tessier@insee.fr",
+        "proposition": "EMAIL_1"
+      },
+      {
+        "category": "NIR",
+        "original": "2 85 10 75 118 043 25",
+        "proposition": "NIR_2"
+      },
+      {
+        "category": "NIR",
+        "original": "1851075118043",
+        "proposition": "NIR_3"
+      },
+      {
+        "category": "TELEPHONE",
+        "original": "06 12 34 56 78",
+        "proposition": "TELEPHONE_2"
+      },
+      {
+        "category": "TELEPHONE",
+        "original": "+33 1 41 17 40 00",
+        "proposition": "TELEPHONE_3"
+      },
+      {
+        "category": "DATE",
+        "original": "2026-10-1",
+        "proposition": "DATE_1"
+      },
+      {
+        "category": "DATE",
+        "original": "12 octobre 2026",
+        "proposition": "DATE_7"
+      },
+      {
+        "category": "IP",
+        "original": "192.168.1.50",
+        "proposition": "IP_5"
+      },
+      {
+        "category": "URL_INSEE",
+        "original": "files.insee.internal",
+        "proposition": "URL_INSEE_8"
+      },
+      {
+        "category": "IDEP",
+        "original": "AB3Z9K",
+        "proposition": "IDEP_1"
+      },
+      {
+        "category": "ORGANISATION",
+        "original": "INSEE",
+        "proposition": "ORGANISATION_1"
+      },
+      {
+        "category": "METADATA_PATHS",
+        "original": "/Users/ctessier",
+        "proposition": "METADATA_PATHS_3"
+      },
+      {
+        "category": "DATE",
+        "original": "05/09/2026",
+        "proposition": "DATE_8"
+      },
+      {
+        "category": "SECRET",
+        "original": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZ2VudC0wMDEiLCJuYW1lIjoiQ2hyaXN0ZWxsZSJ9.dBjftJeZ4CVP-mB92K27uhbUJU1p1r_wW1gFWFOEjXk",
+        "proposition": "SECRET_11"
+      }
+    ]
+  },
+  {
+    "chemin_fichier": "C:\\Users\\ouvj8k\\Desktop\\Test3\\repository\\secrets.yaml",
+    "modif_interne": [
+      {
+        "category": "SECRET",
+        "original": "password: \"Sup3rS3cret!\"",
+        "proposition": "SECRET_12"
+      },
+      {
+        "category": "SECRET",
+        "original": "passwd: \"recensement2026\"",
+        "proposition": "SECRET_13"
+      },
+      {
+        "category": "SECRET",
+        "original": "client_secret: \"cs_9876543210fedcba\"",
+        "proposition": "SECRET_14"
+      },
+      {
+        "category": "SECRET",
+        "original": "-----BEGIN RSA PRIVATE KEY-----",
+        "proposition": "SECRET_15"
+      },
+      {
+        "category": "SECRET",
+        "original": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYWRtaW4ifQ.KxwRJSMeKKF2QT4fwpMeJf36POk6yJV",
+        "proposition": "SECRET_16"
+      },
+      {
+        "category": "URL_INSEE",
+        "original": "db-recensement.insee.local:5432/agents",
+        "proposition": "URL_INSEE_9"
+      },
+      {
+        "category": "URL_INSEE",
+        "original": "https://api-p.interne.insee.fr/v1",
+        "proposition": "URL_INSEE_10"
+      },
+      {
+        "category": "URL_API",
+        "original": "http://10.45.128.203",
+        "proposition": "URL_API_1"
+      },
+      {
+        "category": "INFOS_RESEAU",
+        "original": "proxy.sortie.lan",
+        "proposition": "INFOS_RESEAU_3"
+      },
+      {
+        "category": "INFOS_RESEAU",
+        "original": "donnees-brutes.s3.amazonaws.com",
+        "proposition": "INFOS_RESEAU_4"
+      },
+      {
+        "category": "IP",
+        "original": "172.16.0.15",
+        "proposition": "IP_2"
+      },
+      {
+        "category": "EMAIL",
+        "original": "marc.martin@insee.fr",
+        "proposition": "EMAIL_4"
+      },
+      {
+        "category": "TELEPHONE",
+        "original": "+33 6 98 76 54 32",
+        "proposition": "TELEPHONE_4"
+      },
+      {
+        "category": "DATE",
+        "original": "2024-01-1",
+        "proposition": "DATE_9"
+      },
+      {
+        "category": "EMAIL",
+        "original": "claire.leroy@insee.fr",
+        "proposition": "EMAIL_5"
+      },
+      {
+        "category": "TELEPHONE",
+        "original": "07 89 01 23 45",
+        "proposition": "TELEPHONE_5"
+      },
+      {
+        "category": "DATE",
+        "original": "15/02/2023",
+        "proposition": "DATE_10"
+      },
+      {
+        "category": "NIR",
+        "original": "1 23 45 67 890 123 45",
+        "proposition": "NIR_4"
+      }
+    ]
+  },
+  {
+    "chemin_fichier": "C:\\Users\\ouvj8k\\Desktop\\Test3\\repository\\UserRepository.java",
+    "modif_interne": [
+      {
+        "category": "URL_INSEE",
+        "original": "fr.insee.dsi.repository",
+        "proposition": "URL_INSEE_11"
+      },
+      {
+        "category": "SECRET",
+        "original": "API_KEY = \"api_key = \\\"",
+        "proposition": "SECRET_17"
+      },
+      {
+        "category": "SECRET",
+        "original": "-----BEGIN EC PRIVATE KEY-----",
+        "proposition": "SECRET_18"
+      },
+      {
+        "category": "SECRET",
+        "original": "ACCESS_TOKEN = \"access_token:\\\"",
+        "proposition": "SECRET_19"
+      },
+      {
+        "category": "SECRET",
+        "original": "eyJ0eXAiOiJKV1QiLA0sKicwfQ.eyJpc3MiOiJib2IifQ.DtEhU3SjbEg",
+        "proposition": "SECRET_20"
+      },
+      {
+        "category": "INFOS_RESEAU",
+        "original": "db-qualif.insee.local",
+        "proposition": "INFOS_RESEAU_5"
+      },
+      {
+        "category": "EMAIL",
+        "original": "alain.durand@insee.fr",
+        "proposition": "EMAIL_6"
+      },
+      {
+        "category": "TELEPHONE",
+        "original": "05 55 12 34 56",
+        "proposition": "TELEPHONE_6"
+      },
+      {
+        "category": "NIR",
+        "original": "1 84 03 76 209 114 33",
+        "proposition": "NIR_5"
+      },
+      {
+        "category": "URL_INSEE",
+        "original": "https://ws-qualif.insee.fr/dossiers/",
+        "proposition": "URL_INSEE_12"
+      },
+      {
+        "category": "METADATA_PATHS",
+        "original": "/home/a",
+        "proposition": "METADATA_PATHS_4"
+      },
+      {
+        "category": "DATE",
+        "original": "2026-10-1",
+        "proposition": "DATE_1"
+      },
+      {
+        "category": "DATE",
+        "original": "30 septembre 2026",
+        "proposition": "DATE_11"
+      },
+      {
+        "category": "IP",
+        "original": "10.0.12.8",
+        "proposition": "IP_6"
+      },
+      {
+        "category": "URL_INSEE",
+        "original": "ws-calcul-01.insee.priv",
+        "proposition": "URL_INSEE_13"
+      }
+    ]
+  }
+]
