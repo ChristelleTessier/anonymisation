@@ -14,3 +14,12 @@ uvicorn main:app --reload
 
 cd frontend
 npm run dev
+
+
+
+
+TO DO
+- Affichage des pattern regex
+- Gestion du nom de fichier
+- desanonymisation fichier
+- vider zone de texte qd changement de contenu
