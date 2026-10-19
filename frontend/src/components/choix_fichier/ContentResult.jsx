@@ -19,20 +19,7 @@ function ContentResult({ anonymized_result, title = "✅ Texte anonymisé" }) {
         >
           📋 Copier
         </button>
-        <button
-          className="btn_download_txt"
-          onClick={() => {
-            const blob = new Blob([anonymized_result.text], { type: 'text/plain' })
-            const url = URL.createObjectURL(blob)
-            const a = document.createElement('a')
-            a.href = url
-            a.download = anonymized_result.filename || 'contenu.txt'
-            a.click()
-            URL.revokeObjectURL(url)
-          }}
-        >
-          ⬇️ Télécharger (.txt)
-        </button>
+
         <button
           className="btn_download_txt"
           onClick={() => download_validated_plan().catch(err => alert(`Erreur téléchargement plan : ${err.message}`))}

@@ -10,27 +10,26 @@ import { scan_content } from './services/api_validation'
 import './App.css'
 
 function App() {
-  const [variable_list, set_variable_list] = useState([])
-  const [is_anonymized, set_is_anonymized] = useState(false)
-  const [desanonymized_result, set_desanonymized_result] = useState(null)
-  const [mode, set_mode] = useState('dossier')  // 'dossier' | 'contenu'
-  const [openSection, setOpenSection] = useState(null)
-  const [content, setContent] = useState('')
-  const [plan_path, set_plan_path] = useState('') 
+  const [variable_list, set_variable_list] = useState([]) // Liste des entités custom définies dans la configuration. Passée à ConfigSetting
+  const [is_anonymized, set_is_anonymized] = useState(false) // Booléen : Indique si l'anonymisation est terminée. Sert à activer le bouton "Charger" en mode dossier 
+  const [desanonymized_result, set_desanonymized_result] = useState(null) // Résultat de la désanonymisation : { text, filename }. Passé à Desanonymization → affiché par ContentResult
+  const [mode, set_mode] = useState('dossier')  // Mode courant : 'dossier' ou 'contenu'. Partagé entre les deux blocs et la validation 
+  const [openSection, set_open_section] = useState(null) // Identifie la section accordéon ouverte (aucune par défaut)
+  const [content_anonymisation, set_content_anonymisation] = useState('') // Texte saisi dans la zone de contenu (pour Anonymisation et Desanonymization)
+  const [content_desanonymisation, set_content_desanonymisation] = useState('') // Texte saisi dans la zone de contenu (pour Anonymisation et Desanonymization)
+  const [plan_path, set_plan_path] = useState('') // Chemin du plan d'anonymisation (.json)
 
-  const { folder_path, set_folder_path, is_processing, handle_anonymize_click } =
-    useAnonymization()
+  // Gestion des évènements
+  //////////////////////////
 
-  const handle_success = useCallback(() => {
+  const handle_success = useCallback(() => { // Gestion du statut du résultat de l'anonymisation
     set_is_anonymized(true)
   }, [])
 
-  const validation = useValidation(folder_path, handle_success, mode, content)
-
-  const handle_anonymize = async () => {
+  const handle_anonymize = async () => { // Gestion des étapes d'anonymisation
     if (mode === 'contenu') {
       try {
-        await scan_content(content)
+        await scan_content(content_anonymisation)
         set_is_anonymized(false)
         validation.open_validation()
       } catch (err) {
@@ -46,11 +45,11 @@ function App() {
     }
   }
 
-  const handle_desanonymize = async () => {
+  const handle_desanonymize = async () => { // Gestion des étapes de désanonymisation
     // Simulation frontend : on affiche le contenu collé comme "résultat"
     if (mode === 'contenu') {
       set_desanonymized_result({
-        text: content,
+        text: content_desanonymisation,
         filename: 'contenu_desanonymise.txt',
       })
     } else {
@@ -61,8 +60,22 @@ function App() {
     }
   }
 
-  const toggleSection = (id) => {
-    setOpenSection((prev) => (prev === id ? null : id))
+  // Lien vers Hook
+  //////////////////////////
+
+  const { folder_path, set_folder_path, is_processing, handle_anonymize_click } = useAnonymization()
+  // folder_path : chemin du dossier (managé par le hook)
+  // is_processing : true pendant n'importe quel appel API en cours
+  // handle_anonymize_click : lance l'API d'anonymisation (mode dossier uniquement)
+
+  const validation = useValidation(folder_path, handle_success, mode, content_anonymisation)
+  // Gère le cycle de validation post-anonymisation :
+  // retourne anonymized_result (affiché dans ContentResult)
+  // et open_validation() (ouvre la ValidationModal)
+
+
+  const toggleSection = (id) => {  // Gestion des accordon (un seul a la fois)
+    set_open_section((prev) => (prev === id ? null : id))
   }
 
   return (
@@ -96,8 +109,8 @@ function App() {
             is_anonymized={is_anonymized}
             mode={mode}
             set_mode={set_mode}
-            content={content}
-            set_content={setContent}
+            content={content_anonymisation}
+            set_content={set_content_anonymisation}
             anonymized_result={validation.anonymized_result}
 
           />
@@ -119,8 +132,8 @@ function App() {
             is_desanonymized={desanonymized_result !== null}
             mode={mode}
             set_mode={set_mode}
-            content={content}
-            set_content={setContent}
+            content={content_desanonymisation}
+            set_content={set_content_desanonymisation}
             desanonymized_result={desanonymized_result}
             plan_path={plan_path}        
             set_plan_path={set_plan_path}

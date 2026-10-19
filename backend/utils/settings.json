@@ -8,17 +8,14 @@
     ".md",
     ".docx",
     ".pdf",
-    ".java",
     ".py",
     ".yaml",
     ".yml",
-    ".log"
+    ".java"
   ],
-
   "ignored_extensions": [
     ".env"
   ],
-
   "ignored_directories": [
     ".git",
     ".env",
@@ -27,7 +24,6 @@
     "node_modules",
     "target"
   ],
-
   "target_categories": [
     "identifiants",
     "coordonnees",
