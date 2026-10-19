@@ -110,3 +110,23 @@ export async function download_validated_plan() {
   document.body.removeChild(a)
   URL.revokeObjectURL(url)
 }
+
+/**
+ * Désanonymise un contenu : remplace les propositions par les valeurs d'origine
+ * à l'aide du plan validé stocké sur le serveur.
+ */
+export async function desanitize_content(content) {
+  const response = await fetch(`${API_BASE_URL}/validation/desanitize_content`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ content }),
+  })
+  if (!response.ok) {
+    const errorData = await response.json().catch(() => ({}))
+    const detail = typeof errorData.detail === 'string'
+      ? errorData.detail
+      : JSON.stringify(errorData.detail) || 'Échec de la désanonymisation'
+    throw new Error(detail)
+  }
+  return response.json()
+}

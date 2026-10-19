@@ -186,4 +186,48 @@ def submit_content(request: SubmitContentRequest):
     }
 
 
+class DesanitizeContentRequest(BaseModel):
+    content: str
+
+
+@router.post("/desanitize_content")
+def desanitize_content(request: DesanitizeContentRequest):
+    """
+    Désanonymise un contenu en remplaçant les valeurs 'proposition'
+    par les valeurs 'original' du plan validé.
+    """
+    content = request.content
+    filename = "contenu.txt"
+
+    # 1. Lire le plan validé
+    plan_file = Path("utils/validated_changes_plan.json")
+    if not plan_file.exists():
+        raise HTTPException(
+            status_code=404,
+            detail="Plan validé introuvable. Lancez d'abord une anonymisation."
+        )
+
+    with open(plan_file, "r", encoding="utf-8") as f:
+        plan = json.load(f)
+
+    # 2. Remplacer proposition → original (inverse de l'anonymisation)
+    result = content
+    for fichier in plan:
+        if fichier.get("modif_interne") is None:
+            continue
+        for modif in fichier["modif_interne"]:
+            result = result.replace(modif["proposition"], modif["original"])
+
+    # 3. Sauvegarder dans désanonymized/ (optionnel)
+    output_path = Path("desanonymized") / filename
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    output_path.write_text(result, encoding="utf-8")
+
+    return {
+        "status": "success",
+        "desanonymized_text": result,
+        "filename": filename,
+    }
+
+
     
